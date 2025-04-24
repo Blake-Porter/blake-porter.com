@@ -1,127 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Join a curious photographer on honest travel adventures—real stories, simple itineraries, and raw moments.">
-  <title>Blake Porter | Travel Photography & Stories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Honest travel stories, curated photo galleries and simple itineraries by Blake Porter, passionate photographer and traveler.">
+  <title>Blake Porter — Travel & Photography</title>
   <link rel="stylesheet" href="resources/css/style.css">
 </head>
-
 <body>
   <!-- Header -->
-  <header class="site-header container">
-    <a href="index.html" class="logo">Blake Porter</a>
-    <nav>
-      <button class="burger" aria-label="Toggle menu">
-        <span class="line"></span><span class="line"></span><span class="line"></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#destinations">Destinations</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Blake Porter</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="burger"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" style="background-image: url('resources/images/hero.jpg');">
-    <div class="hero-overlay">
-      <div class="hero-content container">
-        <h1>Curious Roads & Honest Frames</h1>
-        <p>Follow a self-taught photographer as I capture real moments and sketch simple itineraries.</p>
-        <a href="#gallery" class="btn-primary">View Gallery</a>
-      </div>
+  <!-- Hero with fox navhero background -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1>Stories Through My Lens</h1>
+      <p>Join me as I explore remote trails, hidden cafés, and candid moments around the world.</p>
+      <a href="gallery.html" class="btn-primary">View Portfolio</a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section about container">
+  <section class="section about container" id="about">
     <h2>About Me</h2>
-    <p>Hey there! I'm Blake—an amateur photographer with an itch for unpolished travel stories. No glossy brochures here, just raw experiences, quirky detours, and photos straight from the heart.</p>
-    <a href="#blog" class="link-secondary">Read my journey →</a>
+    <div class="about-inner">
+      <div class="about-text">
+        <p>Hi, I'm Blake—a photographer fueled by curiosity and coffee. Over the years, I've chased sunrise vistas in the Alps, discovered street art in Tokyo, and found unexpected inspiration on quiet backroads.</p>
+        <p>I craft simple, honest itineraries and capture moments that bring places to life. No frills—just real stories and photos that speak for themselves.</p>
+        <a href="about.html" class="link-secondary">Learn more about my journey &rarr;</a>
+      </div>
+      <div class="about-photo">
+        <img src="resources/images/about-me.jpg" alt="Blake Porter portrait">
+      </div>
+    </div>
   </section>
 
-  <!-- Featured Destinations -->
-  <section id="destinations" class="section destinations container">
-    <h2>Featured Destinations</h2>
+  <!-- Featured Journeys -->
+  <section class="section journeys container">
+    <h2>Featured Journeys</h2>
     <div class="feature-grid">
       <article>
-        <img src="resources/images/dest1.jpg" alt="Mountain Trail">
-        <h3>Morning in the Mountains</h3>
-        <p>A sunrise hike that taught me the value of solitude.</p>
+        <a href="#"><img src="resources/images/journey1.jpg" alt="Journey 1"><h3>Alpine Sunrise</h3><p>Chasing dawn above the clouds in the Swiss Alps.</p></a>
       </article>
       <article>
-        <img src="resources/images/dest2.jpg" alt="Coastal Road">
-        <h3>Coastal Drives</h3>
-        <p>Wind, waves, and an old camera—perfect companions.</p>
+        <a href="#"><img src="resources/images/journey2.jpg" alt="Journey 2"><h3>Tokyo After Dark</h3><p>Neon-lit alleys and late-night ramen spots.</p></a>
       </article>
       <article>
-        <img src="resources/images/dest3.jpg" alt="City Rooftop">
-        <h3>Urban Rooftops</h3>
-        <p>Finding quiet spots above the city’s buzz.</p>
+        <a href="#"><img src="resources/images/journey3.jpg" alt="Journey 3"><h3>Coastal Roadtrip</h3><p>Seaside sunsets and hidden coves along Highway 1.</p></a>
       </article>
     </div>
-    <a href="#gallery" class="link-secondary">Browse all photos →</a>
+    <a href="gallery.html#featured" class="btn-secondary">See all journeys</a>
   </section>
 
   <!-- Gallery Preview -->
-  <section id="gallery" class="section gallery-preview container">
-    <h2>Quick Glimpse</h2>
+  <section class="section gallery-preview container">
+    <h2>Quick Photo Snaps</h2>
     <div class="preview-grid">
-      <a href="gallery.html"><img src="resources/images/scan1.jpg" alt="Preview 1"></a>
-      <a href="gallery.html"><img src="resources/images/scan2.jpg" alt="Preview 2"></a>
-      <a href="gallery.html"><img src="resources/images/scan3.jpg" alt="Preview 3"></a>
-      <a href="gallery.html"><img src="resources/images/scan4.jpg" alt="Preview 4"></a>
+      <a href="gallery.html"><img src="resources/images/hakkoda_cablecar.jpg" alt="Preview 1"></a>
+      <a href="gallery.html"><img src="resources/images/enoshima_fuji.jpg" alt="Preview 2"></a>
+      <a href="gallery.html"><img src="resources/images/fuji_sunset.jpg" alt="Preview 3"></a>
+      <a href="gallery.html"><img src="resources/images/shibuya_snow.jpg" alt="Preview 4"></a>
+      <a href="gallery.html"><img src="resources/images/top_of_innsbruck.jpg" alt="Preview 5"></a>
+      <a href="gallery.html"><img src="resources/images/bamboo_sky.jpg alt="Preview 6"></a>
     </div>
-    <a href="gallery.html" class="btn-secondary">See Full Gallery</a>
   </section>
-
-  <!-- Blog Teasers -->
-  <section id="blog" class="section blog-preview container">
-    <h2>Latest Stories</h2>
-    <div class="post-grid">
-      <article>
-        <a href="blog/post1.html">
-          <img src="resources/images/post1.jpg" alt="Story 1">
-          <h3>Chasing Sunsets</h3>
-          <p>How a missing bus led to an unforgettable evening.</p>
-        </a>
-      </article>
-      <article>
-        <a href="blog/post2.html">
-          <img src="resources/images/post2.jpg" alt="Story 2">
-          <h3>Street Market Finds</h3>
-          <p>Odd trinkets, friendly faces, and the smell of spices.</p>
-        </a>
-      </article>
-    </div>
-    <a href="blog.html" class="link-secondary">Read more →</a>
-  </section>
-
-  <!-- Contact / Subscribe -->
-  <section id="contact" class="section contact container">
-    <h2>Stay in Touch</h2>
-    <p>Get occasional emails when I post new stories or photos. No spam—just the good stuff.</p>
-    <form action="https://example.com/subscribe" method="post" class="subscribe-form">
-      <input type="email" name="email" placeholder="Your email address" required>
-      <button type="submit" class="btn-primary">Subscribe</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer container">
-    <p>&copy; 2025 Blake Porter. All rights reserved.</p>
-    <ul class="social-links">
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">Email</a></li>
-    </ul>
-  </footer>
-
-  <script src="resources/js/app.js"></script>
-</body>
-</html>
