@@ -2,185 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Destinations | Blake-Porter.com</title>
-
-  <!-- Global site styles -->
+  <title>Inspirations for a Journey</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="resources/css/style.css">
-  <!-- Gallery-specific overrides -->
   <link rel="stylesheet" href="resources/css/gallery-style.css">
-  <!-- Lightbox2 styling -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 </head>
 <body class="gallery-page">
-
-  <!-- Header -->
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="header-inner container">
       <a href="index.html" class="logo">Blake Porter</a>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="gallery.html" class="active">Destinations</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="gallery.html" class="active">Inspirations</a></li>
+          <li><a href="stories.html">Stories</a></li>
         </ul>
-        <button class="burger" aria-label="Toggle menu">
-          <span class="line"></span><span class="line"></span><span class="line"></span>
-        </button>
       </nav>
     </div>
   </header>
 
-  <main class="container gallery-container">
-    <!-- Region Filters -->
-    <nav class="gallery-nav">
-      <button data-region="0" class="active">Europe</button>
-      <button data-region="1">North America</button>
-      <button data-region="2">East Asia</button>
-      <button data-region="3">Southeast Asia</button>
-    </nav>
-
-    <!-- Sliding Regions Wrapper -->
-    <div class="regions-wrapper">
-      <div class="regions-container">
-        <!-- Europe Section -->
-        <section id="region-0" class="region active">
-          <h2>Europe</h2>
-          <div class="card-grid">
-            <figure class="gallery-card">
-              <a href="resources/images/hamburg_cow.jpg" data-lightbox="gallery" data-title="Hamburg, Germany">
-                <img src="resources/images/hamburg_cow.jpg" alt="Hamburg Cow" loading="lazy">
-                <figcaption>Hamburg, Germany</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/polin_monastery.jpg" data-lightbox="gallery" data-title="Polin Monastery, Poland">
-                <img src="resources/images/polin_monastery.jpg" alt="Polin Monastery" loading="lazy">
-                <figcaption>Polin Monastery, Poland</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/top_of_innsbruck.jpg" data-lightbox="gallery" data-title="Innsbruck, Austria">
-                <img src="resources/images/top_of_innsbruck.jpg" alt="Top of Innsbruck" loading="lazy">
-                <figcaption>Innsbruck, Austria</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/vatican_stairs.jpg" data-lightbox="gallery" data-title="Vatican City">
-                <img src="resources/images/vatican_stairs.jpg" alt="Vatican Stairs" loading="lazy">
-                <figcaption>Vatican City</figcaption>
-              </a>
-            </figure>
-          </div>
-        </section>
-
-        <!-- North America Section -->
-        <section id="region-1" class="region">
-          <h2>North America</h2>
-          <div class="card-grid">
-            <figure class="gallery-card">
-              <a href="resources/images/sequoia_camping.jpg" data-lightbox="gallery" data-title="Sequoia National Park, USA">
-                <img src="resources/images/sequoia_camping.jpg" alt="Sequoia Camping" loading="lazy">
-                <figcaption>Sequoia National Park, USA</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/vasquez_rocks.jpg" data-lightbox="gallery" data-title="Vasquez Rocks, USA">
-                <img src="resources/images/vasquez_rocks.jpg" alt="Vasquez Rocks" loading="lazy">
-                <figcaption>Vasquez Rocks, USA</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/victoriabay_night.jpg" data-lightbox="gallery" data-title="Victoria Bay, Canada">
-                <img src="resources/images/victoriabay_night.jpg" alt="Victoria Bay Night" loading="lazy">
-                <figcaption>Victoria Bay, Canada</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/river_bench.jpg" data-lightbox="gallery" data-title="River Bench, USA">
-                <img src="resources/images/river_bench.jpg" alt="River Bench" loading="lazy">
-                <figcaption>River Bench, USA</figcaption>
-              </a>
-            </figure>
-          </div>
-        </section>
-
-        <!-- East Asia Section -->
-        <section id="region-2" class="region">
-          <h2>East Asia</h2>
-          <div class="card-grid">
-            <figure class="gallery-card">
-              <a href="resources/images/enoshima_fuji.jpg" data-lightbox="gallery" data-title="Enoshima & Mt. Fuji, Japan">
-                <img src="resources/images/enoshima_fuji.jpg" alt="Enoshima Fuji" loading="lazy">
-                <figcaption>Enoshima & Mt. Fuji, Japan</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/hakkoda_cablecar.jpg" data-lightbox="gallery" data-title="Hakkoda Cable Car, Japan">
-                <img src="resources/images/hakkoda_cablecar.jpg" alt="Hakkoda Cable Car" loading="lazy">
-                <figcaption>Hakkoda Cable Car, Japan</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/keio_snow.jpg" data-lightbox="gallery" data-title="Keio, Japan">
-                <img src="resources/images/keio_snow.jpg" alt="Keio Snow" loading="lazy">
-                <figcaption>Keio, Japan</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/shibuya_snow.jpg" data-lightbox="gallery" data-title="Shibuya, Japan">
-                <img src="resources/images/shibuya_snow.jpg" alt="Shibuya Snow" loading="lazy">
-                <figcaption>Shibuya, Japan</figcaption>
-              </a>
-            </figure>
-          </div>
-        </section>
-
-        <!-- Southeast Asia Section -->
-        <section id="region-3" class="region">
-          <h2>Southeast Asia</h2>
-          <div class="card-grid">
-            <figure class="gallery-card">
-              <a href="resources/images/ninbinh_temple.jpg" data-lightbox="gallery" data-title="Ninh Binh, Vietnam">
-                <img src="resources/images/ninbinh_temple.jpg" alt="Ninh Binh Temple" loading="lazy">
-                <figcaption>Ninh Binh, Vietnam</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/ninbinh_temple_above.jpg" data-lightbox="gallery" data-title="Ninh Binh, Vietnam">
-                <img src="resources/images/ninbinh_temple_above.jpg" alt="Temple Above" loading="lazy">
-                <figcaption>Ninh Binh, Vietnam</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/tamcoc_river.jpg" data-lightbox="gallery" data-title="Tam Coc River, Vietnam">
-                <img src="resources/images/tamcoc_river.jpg" alt="Tam Coc River" loading="lazy">
-                <figcaption>Tam Coc River, Vietnam</figcaption>
-              </a>
-            </figure>
-            <figure class="gallery-card">
-              <a href="resources/images/bamboo_sky.jpg" data-lightbox="gallery" data-title="Bamboo Sky, Vietnam">
-                <img src="resources/images/bamboo_sky.jpg" alt="Bamboo Sky" loading="lazy">
-                <figcaption>Bamboo Sky, Vietnam</figcaption>
-              </a>
-            </figure>
-          </div>
-        </section>
-      </div> <!-- /.regions-container -->
-    </div> <!-- /.regions-wrapper -->
+  <main class="gallery-container container">
+    <h1 class="section-title">Inspirations for a Journey</h1>
+    <section class="gallery-intro">
+      <h2>Inspirations</h2>
+      <p class="subtitle">Find some ideas for your future adventure.</p>
+      <button id="theme-toggle">Toggle Dark/Light</button>
+    </section>
+    <ul class="gallery-grid">
+      <li class="gallery-item">
+        <img src="resources/images/aboutme_crop.jpg" data-full="resources/images/aboutme.jpg" alt="About Me">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/autumn_photographer.jpg" data-full="resources/images/autumn_photographer.jpg" alt="Autumn Photographer">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/bamboo_sky.jpg" data-full="resources/images/bamboo_sky.jpg" alt="Bamboo Sky">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/bridge_reflection.jpg" data-full="resources/images/bridge_reflection.jpg" alt="Bridge Reflection">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/chicago_night.jpg" data-full="resources/images/chicago_night.jpg" alt="Chicago Night">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/enoshima_fuji.jpg" data-full="resources/images/enoshima_fuji.jpg" alt="Enoshima & Mount Fuji">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/fuji_sunset.jpg" data-full="resources/images/fuji_sunset.jpg" alt="Fuji Sunset">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/hakkoda_cablecar.jpg" data-full="resources/images/hakkoda_cablecar.jpg" alt="Hakkoda Cablecar">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/hamburg_cow.jpg" data-full="resources/images/hamburg_cow.jpg" alt="Hamburg Cow">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/hongkong_buddha.jpg" data-full="resources/images/hongkong_buddha.jpg" alt="Hong Kong Buddha">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/keio_snow.jpg" data-full="resources/images/keio_snow.jpg" alt="Keio Snow">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/kitsune_169.jpg" data-full="resources/images/kitsune_169.jpg" alt="Mystical Fox (Kitsune)">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/kurodake.jpg" data-full="resources/images/kurodake.jpg" alt="Mount Kurodake">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/ninbinh_temple_above.jpg" data-full="resources/images/ninbinh_temple_above.jpg" alt="Ninh Binh Temple View">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/ninhbinh_temple.jpg" data-full="resources/images/ninhbinh_temple.jpg" alt="Ninh Binh Temple">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/oraise_road.jpg" data-full="resources/images/oraise_road.jpg" alt="Oraise Road">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/polin_monastery.jpg" data-full="resources/images/polin_monastery.jpg" alt="Polin Monastery">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/river_bench.jpg" data-full="resources/images/river_bench.jpg" alt="River Bench">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/sequoia_camping.jpg" data-full="resources/images/sequoia_camping.jpg" alt="Sequoia Camping">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/shibuya_snow.jpg" data-full="resources/images/shibuya_snow.jpg" alt="Shibuya in Snow">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/tamcoc_river.jpg" data-full="resources/images/tamcoc_river.jpg" alt="Tam Coc River">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/top_of_innsbruck.jpg" data-full="resources/images/top_of_innsbruck.jpg" alt="Top of Innsbruck">
+      </li>
+      <li class="gallery-item">
+        <img src="resources/images/vasquez_rocks.jpg" data-full="resources/images/vasquez_rocks.jpg" alt="Vasquez Rocks">
+      </li>
+    </ul>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Blake Porter</p>
-    </div>
-  </footer>
-  <!-- Gallery sliding functionality -->
+  <!-- Lightbox overlay -->
+  <div id="lightbox-overlay" class="hidden">
+    <img id="lightbox-img" src="" alt="">
+    <button id="lightbox-close">×</button>
+  </div>
+
   <script src="resources/js/gallery.js"></script>
-  <!-- Lightbox script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
