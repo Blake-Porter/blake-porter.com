@@ -5,7 +5,7 @@
     --color-accent: #E67E22;
     --transition-fast: 0.3s ease;
   }
-  
+
   /* Global Resets */
   *, *::before, *::after {
     box-sizing: border-box;

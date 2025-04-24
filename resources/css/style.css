@@ -268,14 +268,6 @@ img { display: block; max-width: 100%; }
   border-bottom-color: var(--color-primary);
 }
 
-/* ── Region Sections ───────────────────────────────────────────────── */
-.region {
-  display: none;
-}
-.region.active {
-  display: block;
-}
-
 /* ── Card Grid ──────────────────────────────────────────────────────── */
 .card-grid {
   display: grid;
