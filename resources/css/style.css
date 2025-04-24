@@ -309,4 +309,48 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* Tablet breakpoint */
+@media (max-width: 768px) {
+    /* Show the mobile nav when active */
+    .nav-links.active {
+      display: flex;
+    }
+    /* Stack features and posts into one column */
+    .feature-grid,
+    .post-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Phone breakpoint */
+  @media (max-width: 480px) {
+    /* Slightly smaller hero text */
+    .hero-text h2 {
+      font-size: 1.5rem;
+    }
+    /* Tighter buttons */
+    .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+    /* Collapse nav links under burger by default */
+    .nav-links {
+      display: none;
+    }
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.95);
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+    }
+    .nav-links li {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+  }
+  
   
