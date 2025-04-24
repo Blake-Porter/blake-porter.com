@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all gallery items
-    const items = document.querySelectorAll('.gallery-item img');
-    const overlay = document.getElementById('lightbox-overlay');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
+    // —— Lightbox Setup —— //
+    const items      = document.querySelectorAll('.gallery-item img');
+    const overlay    = document.getElementById('lightbox-overlay');
+    const lightboxImg= document.getElementById('lightbox-img');
+    const closeBtn   = document.getElementById('lightbox-close');
   
     items.forEach(img => {
       img.addEventListener('click', () => {
@@ -13,35 +13,32 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    // Close lightbox on close button
     closeBtn.addEventListener('click', () => {
       overlay.classList.add('hidden');
       lightboxImg.src = '';
     });
   
-    // Also close when clicking outside the image
     overlay.addEventListener('click', e => {
       if (e.target === overlay) {
         overlay.classList.add('hidden');
         lightboxImg.src = '';
       }
     });
-  });
-
-  // Dark / Light toggle
-const toggle = document.getElementById('theme-toggle');
-toggle.addEventListener('click', () => {
-  const root = document.documentElement;
-  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  // Optionally save preference:
-  localStorage.setItem('theme', next);
-});
-
-// On load, apply saved theme
-document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', saved);
-});
   
+    // —— Night/Day Toggle —— //
+    const trigger = document.querySelector('.js-night-mode-trigger');
+    const root    = document.documentElement;
+  
+    // On load, apply saved theme (default: light)
+    const saved = localStorage.getItem('theme') || 'light';
+    root.setAttribute('data-theme', saved);
+  
+    // Toggle theme on click
+    trigger.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  });
   

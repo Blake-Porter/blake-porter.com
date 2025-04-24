@@ -75,13 +75,18 @@
     cursor: pointer;
   }
   
-  /* Night Mode Switcher */
+  /* Night Mode Switcher: Vertical */
   .vlt-night-mode-switcher {
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
     display: flex;
+    flex-direction: column;
     align-items: center;
     cursor: pointer;
     user-select: none;
-    margin-left: 1rem;
+    z-index: 10001;
   }
   .vlt-night-mode-switcher__toggle {
     width: 40px;
@@ -89,7 +94,7 @@
     background: var(--color-muted);
     border-radius: 10px;
     position: relative;
-    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
     transition: background var(--transition);
   }
   [data-theme="dark"] .vlt-night-mode-switcher__toggle {
@@ -111,7 +116,9 @@
   }
   .vlt-night-mode-switcher__states {
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
     font-size: 0.875rem;
     color: var(--color-muted);
   }
@@ -135,4 +142,57 @@
   [data-theme="light"] .vlt-night-mode-switcher__states .night {
     opacity: 0.5;
   }
+
+.vlt-night-mode-switcher {
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    z-index: 10001;
+  }
+  .vlt-night-mode-switcher__toggle {
+    width: 20px;
+    height: 40px;
+    margin: 0.5rem 0;
+    background: var(--color-muted);
+    border-radius: 10px;
+    position: relative;
+    transition: background var(--transition);
+  }
+  [data-theme="dark"] .vlt-night-mode-switcher__toggle {
+    background: var(--color-secondary);
+  }
+  .vlt-night-mode-switcher__toggle::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform var(--transition);
+  }
+  [data-theme="dark"] .vlt-night-mode-switcher__toggle::before {
+    transform: translateY(20px); /* move down instead of sideways */
+  }
+  .vlt-night-mode-switcher__states {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .vlt-night-mode-switcher__states .day {
+    margin-bottom: 0.5rem;
+  }
+  .vlt-night-mode-switcher__states .night {
+    margin-top: 0.5rem;
+  }
+  [data-theme="dark"] .vlt-night-mode-switcher__states .day { opacity: 0.5; }
+  [data-theme="light"] .vlt-night-mode-switcher__states .night { opacity: 0.5; }
   
