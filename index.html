@@ -1,122 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Immersive photography, curated itineraries, and travel insights to inspire your next adventure.">
-  <title>Blake Porter | Travel Photography & Itineraries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join a curious photographer on honest travel adventures—real stories, simple itineraries, and raw moments.">
+  <title>Blake Porter | Travel Photography & Stories</title>
   <link rel="stylesheet" href="resources/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- Navigation -->
-  <header id="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Blake Porter</a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#itineraries">Itineraries</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
+  <!-- Header -->
+  <header class="site-header container">
+    <a href="index.html" class="logo">Blake Porter</a>
+    <nav>
+      <button class="burger" aria-label="Toggle menu">
+        <span class="line"></span><span class="line"></span><span class="line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-      <div class="hero-overlay"></div>
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('resources/images/hero.jpg');">
+    <div class="hero-overlay">
       <div class="hero-content container">
-        <h1>Travel Deeply, See Clearly</h1>
-        <p>Blake Porter brings you vivid photography, bespoke itineraries, and immersive travel stories.</p>
-        <a href="#destinations" class="btn-primary">Explore Destinations</a>
+        <h1>Curious Roads & Honest Frames</h1>
+        <p>Follow a self-taught photographer as I capture real moments and sketch simple itineraries.</p>
+        <a href="#gallery" class="btn-primary">View Gallery</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-      <div class="container">
-        <h2>About Me</h2>
-        <p>I'm Blake Porter, a photographer and travel planner dedicated to capturing the soul of every place and crafting journeys that linger long after you return home.</p>
-      </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section about container">
+    <h2>About Me</h2>
+    <p>Hey there! I'm Blake—an amateur photographer with an itch for unpolished travel stories. No glossy brochures here, just raw experiences, quirky detours, and photos straight from the heart.</p>
+    <a href="#blog" class="link-secondary">Read my journey →</a>
+  </section>
 
-    <!-- Destinations Section -->
-    <section id="destinations" class="section destinations">
-      <div class="container">
-        <h2>Featured Destinations</h2>
-        <div class="feature-grid">
-          <!-- Repeat for each destination -->
-          <article class="feature-card">
-            <img src="resources/images/dest1.jpg" alt="Destination 1">
-            <h3>Kyoto, Japan</h3>
-            <p>Cherry blossoms, hidden temples, and riverside walks.</p>
-            <a href="blog/kyoto-itinerary.html" class="link-secondary">Read Story</a>
-          </article>
-          <!-- ... -->
-        </div>
-      </div>
-    </section>
+  <!-- Featured Destinations -->
+  <section id="destinations" class="section destinations container">
+    <h2>Featured Destinations</h2>
+    <div class="feature-grid">
+      <article>
+        <img src="resources/images/dest1.jpg" alt="Mountain Trail">
+        <h3>Morning in the Mountains</h3>
+        <p>A sunrise hike that taught me the value of solitude.</p>
+      </article>
+      <article>
+        <img src="resources/images/dest2.jpg" alt="Coastal Road">
+        <h3>Coastal Drives</h3>
+        <p>Wind, waves, and an old camera—perfect companions.</p>
+      </article>
+      <article>
+        <img src="resources/images/dest3.jpg" alt="City Rooftop">
+        <h3>Urban Rooftops</h3>
+        <p>Finding quiet spots above the city’s buzz.</p>
+      </article>
+    </div>
+    <a href="#gallery" class="link-secondary">Browse all photos →</a>
+  </section>
 
-    <!-- Itineraries Section -->
-    <section id="itineraries" class="section itineraries">
-      <div class="container">
-        <h2>Sample Itineraries</h2>
-        <ul class="itinerary-list">
-          <li><a href="itineraries/europe-10-day.html">Europe in 10 Days</a></li>
-          <li><a href="itineraries/japan-14-day.html">Japan Highlights - 14 Days</a></li>
-          <li><a href="itineraries/national-parks.html">US National Parks Road Trip</a></li>
-        </ul>
-      </div>
-    </section>
+  <!-- Gallery Preview -->
+  <section id="gallery" class="section gallery-preview container">
+    <h2>Quick Glimpse</h2>
+    <div class="preview-grid">
+      <a href="gallery.html"><img src="resources/images/scan1.jpg" alt="Preview 1"></a>
+      <a href="gallery.html"><img src="resources/images/scan2.jpg" alt="Preview 2"></a>
+      <a href="gallery.html"><img src="resources/images/scan3.jpg" alt="Preview 3"></a>
+      <a href="gallery.html"><img src="resources/images/scan4.jpg" alt="Preview 4"></a>
+    </div>
+    <a href="gallery.html" class="btn-secondary">See Full Gallery</a>
+  </section>
 
-    <!-- Gallery Preview Section -->
-    <section id="gallery" class="section gallery-preview">
-      <div class="container">
-        <h2>Photo Gallery</h2>
-        <div class="preview-grid">
-          <!-- Repeat for preview images -->
-          <a href="gallery.html"><img src="resources/images/photo1.jpg" alt="Photo 1"></a>
-          <a href="gallery.html"><img src="resources/images/photo2.jpg" alt="Photo 2"></a>
-          <a href="gallery.html"><img src="resources/images/photo3.jpg" alt="Photo 3"></a>
-          <a href="gallery.html"><img src="resources/images/photo4.jpg" alt="Photo 4"></a>
-          <a href="gallery.html"><img src="resources/images/photo5.jpg" alt="Photo 5"></a>
-          <a href="gallery.html"><img src="resources/images/photo6.jpg" alt="Photo 6"></a>
-        </div>
-      </div>
-    </section>
+  <!-- Blog Teasers -->
+  <section id="blog" class="section blog-preview container">
+    <h2>Latest Stories</h2>
+    <div class="post-grid">
+      <article>
+        <a href="blog/post1.html">
+          <img src="resources/images/post1.jpg" alt="Story 1">
+          <h3>Chasing Sunsets</h3>
+          <p>How a missing bus led to an unforgettable evening.</p>
+        </a>
+      </article>
+      <article>
+        <a href="blog/post2.html">
+          <img src="resources/images/post2.jpg" alt="Story 2">
+          <h3>Street Market Finds</h3>
+          <p>Odd trinkets, friendly faces, and the smell of spices.</p>
+        </a>
+      </article>
+    </div>
+    <a href="blog.html" class="link-secondary">Read more →</a>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2>Get in Touch</nobreak>
-        <p>Have questions or need a custom itinerary? Drop me a line.</p>
-        <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" placeholder="How can I help you?" required></textarea>
-          <button type="submit" class="btn-primary">Send Message</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
+  <!-- Contact / Subscribe -->
+  <section id="contact" class="section contact container">
+    <h2>Stay in Touch</h2>
+    <p>Get occasional emails when I post new stories or photos. No spam—just the good stuff.</p>
+    <form action="https://example.com/subscribe" method="post" class="subscribe-form">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+  </section>
 
   <!-- Footer -->
-  <footer class="footer-home">
-    <div class="container">
-      <p>&copy; 2025 Blake Porter</p>
-      <ul class="social-links">
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">LinkedIn</a></li>
-      </ul>
-    </div>
+  <footer class="site-footer container">
+    <p>&copy; 2025 Blake Porter. All rights reserved.</p>
+    <ul class="social-links">
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Email</a></li>
+    </ul>
   </footer>
 
   <script src="resources/js/app.js"></script>
