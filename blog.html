@@ -1,0 +1,61 @@
+<!-- =====================================
+File: blog.html
+Professional Blog Page Layout
+===================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Blake-Porter.com</title>
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+<body>
+  <!-- Header/Nav -->
+  <header id="site-header">
+    <nav class="container">
+      <a href="index.html" class="logo"><h1>Blake Porter</h1></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="burger" aria-label="Toggle menu">
+        <span class="line"></span><span class="line"></span><span class="line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="blog-section container">
+      <h2>Latest from the Blog</h2>
+      <div class="post-grid">
+        <!-- Repeat this block for each post -->
+        <article class="post-card">
+          <a href="blog/post1.html">
+            <img src="resources/images/post1.jpg" alt="Finding Solitude in the Alps">
+            <h3>Finding Solitude in the Alps</h3>
+            <p>From mountain trails to alpine vistas—join me on a quiet journey.</p>
+          </a>
+        </article>
+        <!-- …more post-card entries… -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-home text-style">
+    <div class="container">
+      <p>&copy; 2025 Blake Porter</p>
+      <ul class="social-links">
+        <li><a href="#" target="_blank">Instagram</a></li>
+        <li><a href="#" target="_blank">Twitter</a></li>
+        <li><a href="#" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="resources/js/app.js"></script>
+</body>
+</html>
