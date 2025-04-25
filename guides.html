@@ -14,22 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="guides-page">
-  <!-- Header/Nav -->
-  <header class="site-header">
-    <div class="header-inner container">
-      <a href="index.html" class="logo">Blake Porter</a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="guides.html" class="active">Guides</a></li>
-          <li><a href="inspiration.html">Inspiration</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
+  <div data-include="partials/header.html"></div>
   <main>
     <!-- Region Filters -->
     <section class="guides-controls container">
@@ -84,7 +69,8 @@
     </section>
   </main>
 
-  <!-- Scripts -->
+  <div data-include="partials/footer.html"></div>
+  <script src="resources/js/main.js"></script>
   <script src="resources/js/guides.js"></script>
 </body>
 </html>

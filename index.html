@@ -11,8 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Theme toggle button -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">Dark Mode</button>
+  <!-- Night-mode switcher (inspiration style) -->
+<div class="vlt-night-mode-switcher js-night-mode-trigger" data-theme="light">
+  <div class="vlt-night-mode-switcher__states">
+    <span class="day">Light <i class="fa-regular fa-fw fa-brightness"></i></span>
+  </div>
+  <div class="vlt-night-mode-switcher__toggle"></div>
+  <div class="vlt-night-mode-switcher__states">
+    <span class="night">Dark <i class="fa-solid fa-fw fa-moon"></i></span>
+  </div>
+</div>
 
   <!-- Site Header / Nav -->
   <header class="site-header">
@@ -96,7 +104,7 @@
       <div class="about-content">
         <img class="about-photo" src="resources/images/aboutme_crop.jpg" alt="Blake Porter">
         <div class="about-text">
-          <p>Hi—I’m Blake, a photographer, trip-planner and travel writer. I’ve explored 30+ countries, specializing in off-the-beaten-path itineraries and food adventures. I help people turn their travel dreams into day-by-day plans so they can focus on making memories.</p>
+          <p>Hi—I'm Blake, a photographer, trip-planner and travel writer. I've explored 30+ countries, specializing in off-the-beaten-path itineraries and food adventures. I help people turn their travel dreams into day-by-day plans so they can focus on making memories.</p>
           <ul class="about-stats">
             <li><strong>30+</strong> Countries Visited</li>
             <li><strong>2000+</strong> Photos in my Portfolio</li>
@@ -118,14 +126,6 @@
       <a href="#">Facebook</a>
     </div>
   </footer>
-
-  <!-- Theme toggle script -->
-  <script>
-    const toggle = document.getElementById('theme-toggle');
-    toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark-mode');
-      toggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-    });
-  </script>
+  <script src="resources/js/main.js"></script>
 </body>
 </html>

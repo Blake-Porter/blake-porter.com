@@ -17,21 +17,7 @@
         referrerpolicy="no-referrer" />
 </head>
 <body class="gallery-page">
-  <header class="site-header">
-    <div class="header-inner container">
-      <a href="index.html" class="logo">Blake Porter</a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="guides.html">Guides</a></li>
-          <li><a href="inspiration.html" class="active">Inspiration</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
+  <div data-include="partials/header.html"></div>
   <main class="gallery-container container">
     <!-- Night Mode Switcher -->
     <div class="vlt-night-mode-switcher js-night-mode-trigger">
@@ -96,7 +82,8 @@
     <img id="lightbox-img" src="" alt="">
     <button id="lightbox-close" aria-label="Close">×</button>
   </div>
-
+  <div data-include="partials/footer.html"></div>
+  <script src="resources/js/main.js"></script>
   <script src="resources/js/inspiration.js"></script>
 </body>
 </html>

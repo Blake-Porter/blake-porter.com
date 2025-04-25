@@ -67,3 +67,62 @@
   @media (max-width: 480px) {
     .hero__content h1 { font-size: 2rem; }
   }
+
+  /* Night-mode switcher styles from inspiration.css */
+.vlt-night-mode-switcher {
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    padding: 0.75rem 0.5rem;
+    background: rgba(255,255,255,0.7);
+    border-radius: 999px;
+    z-index: 10001;
+    transition: background var(--transition);
+  }
+  .vlt-night-mode-switcher__toggle {
+    width: 20px;
+    height: 40px;
+    margin: 0.5rem 0;
+    background: var(--color-muted);
+    border-radius: 10px;
+    position: relative;
+    transition: background var(--transition);
+  }
+  .vlt-night-mode-switcher__toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transition: transform var(--transition);
+  }
+  [data-theme="dark"] .vlt-night-mode-switcher {
+    background: rgba(44,62,80,0.7);
+  }
+  [data-theme="dark"] .vlt-night-mode-switcher__toggle {
+    background: var(--color-secondary);
+  }
+  [data-theme="dark"] .vlt-night-mode-switcher__toggle::before {
+    transform: translateY(20px);
+  }
+  .vlt-night-mode-switcher__states {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .vlt-night-mode-switcher__states .day {
+    margin-bottom: 0.5rem;
+  }
+  .vlt-night-mode-switcher__states .night {
+    margin-top: 0.5rem;
+  }
