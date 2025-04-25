@@ -1,87 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Guides – Blake Porter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Global Styles -->
-  <link rel="stylesheet" href="resources/css/style.css">
-  <link rel="stylesheet" href="resources/css/guides.css">
-  <!-- FontAwesome for icons -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-p6YV1q1v22uBBbe7iC6Z0vha2b+YO1QkrpQmB3F3HXyXE7dubcqQ+xu+KKVYsKPR4p59pRcQ7MTOj6U5wb7Ryg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body class="guides-page">
-  <div data-include="partials/header.html"></div>
-  <main class="gallery-container container">
-    <!-- Night Mode Switcher -->
-    <div class="vlt-night-mode-switcher js-night-mode-trigger">
-      <div class="vlt-night-mode-switcher__states">
-        <span class="day">Light <i class="fa-regular fa-fw fa-brightness"></i></span>
-      </div>
-      <div class="vlt-night-mode-switcher__toggle"></div>
-      <div class="vlt-night-mode-switcher__states">
-        <span class="night">Dark <i class="fa-solid fa-fw fa-moon"></i></span>
-      </div>
-    </div>
-  <main>
-    <!-- Region Filters -->
-    <section class="guides-controls container">
-      <button class="filter-btn active" data-region="all">All</button>
-      <button class="filter-btn" data-region="asia">Asia</button>
-      <button class="filter-btn" data-region="europe">Europe</button>
-      <button class="filter-btn" data-region="north-america">North America</button>
-    </section>
+---
+title: "Guides"
+layout: layout.njk
+---
 
-    <!-- Sub‑Filters (Countries) -->
-    <section class="subfilter-controls container" aria-hidden="true"></section>
+<div class="vlt-night-mode-switcher js-night-mode-trigger">
+  <div class="vlt-night-mode-switcher__states">
+    <span class="day">Light <i class="fa-regular fa-fw fa-brightness"></i></span>
+  </div>
+  <div class="vlt-night-mode-switcher__toggle"></div>
+  <div class="vlt-night-mode-switcher__states">
+    <span class="night">Dark <i class="fa-solid fa-fw fa-moon"></i></span>
+  </div>
+</div>
 
-    <!-- Destinations Grid -->
-    <section class="all-destinations container">
-      <div class="destinations-grid">
-        <!-- Asia → Japan -->
-        <article class="destination-card" data-region="asia" data-subregion="japan">
-          <img src="https://via.placeholder.com/300x180?text=Tokyo" alt="Tokyo, Japan">
-          <h3>Tokyo, Japan</h3>
-          <p>3 Itineraries • 5 Tips</p>
-          <a href="guides/tokyo.html" class="btn">Explore &rarr;</a>
-        </article>
-        <!-- Asia → SEA -->
-        <article class="destination-card" data-region="asia" data-subregion="sea">
-          <img src="https://via.placeholder.com/300x180?text=SEA" alt="Southeast Asia">
-          <h3>Southeast Asia</h3>
-          <p>4 Itineraries • 6 Tips</p>
-          <a href="guides/sea.html" class="btn">Explore &rarr;</a>
-        </article>
-        <!-- Europe -->
-        <article class="destination-card" data-region="europe" data-subregion="europe">
-          <img src="https://via.placeholder.com/300x180?text=Europe" alt="Europe Highlights">
-          <h3>Europe Highlights</h3>
-          <p>1 Itinerary • 3 Tips</p>
-          <a href="guides/europe.html" class="btn">Explore &rarr;</a>
-        </article>
-        <!-- North America → US Parks -->
-        <article class="destination-card" data-region="north-america" data-subregion="us-parks">
-          <img src="https://via.placeholder.com/300x180?text=Yosemite" alt="Yosemite National Park">
-          <h3>Yosemite NP</h3>
-          <p>2 Itineraries • 4 Tips</p>
-          <a href="guides/yosemite.html" class="btn">Explore &rarr;</a>
-        </article>
-        <!-- North America → West Coast -->
-        <article class="destination-card" data-region="north-america" data-subregion="west-coast-us">
-          <img src="https://via.placeholder.com/300x180?text=SF" alt="San Francisco">
-          <h3>San Francisco</h3>
-          <p>1 Itinerary • 2 Tips</p>
-          <a href="guides/san-francisco.html" class="btn">Explore &rarr;</a>
-        </article>
+<section class="guides-controls container">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="itineraries">Itineraries</button>
+  <button class="filter-btn" data-filter="explore">Explore</button>
+  <button class="filter-btn" data-filter="tips-gear">Tips & Gear</button>
+</section>
+
+<section class="subfilter-controls container" aria-hidden="true"></section>
+
+<section class="destinations-grid container">
+  {% for guide in collections.guides %}
+  <article class="guide-card" data-category="{{ guide.data.category }}" data-region="{{ guide.data.region }}">
+    <a href="{{ guide.url }}">
+      <div class="guide-thumbnail">
+        <img src="{{ guide.data.bannerImage }}" alt="{{ guide.data.bannerAlt or guide.data.title }}">
       </div>
-    </section>
-  </main>
+      <div class="guide-summary">
+        <h3>{{ guide.data.title }}</h3>
+        <p>{{ guide.data.description }}</p>
+        <p class="guide-meta">{{ guide.data.readTime }} • {{ guide.data.region | capitalize }}</p>
+      </div>
+    </a>
+  </article>
+  {% endfor %}
+</section>
 
-  <div data-include="partials/footer.html"></div>
-  <script src="resources/js/main.js"></script>
-  <script src="resources/js/guides.js"></script>
-</body>
-</html>
+<script src="/resources/js/main.js"></script>
+<script src="/resources/js/guides.js"></script>
+
+<script>
+// JS filter toggle
+document.querySelectorAll('.filter-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    document.querySelectorAll('.guide-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>

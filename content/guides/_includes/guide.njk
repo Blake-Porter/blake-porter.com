@@ -1,0 +1,42 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<article class="guide-post {{ category }}">
+  <header class="guide-header">
+    <h1 class="guide-title">{{ title }}</h1>
+    {% if date %}
+      <p class="guide-meta">📅 {{ date }}</p>
+    {% endif %}
+    {% if readTime %}
+      <p class="guide-meta">⏱️ {{ readTime }}</p>
+    {% endif %}
+    {% if bannerImage %}
+      <figure class="guide-banner">
+        <img src="{{ bannerImage }}" alt="{{ bannerAlt or title }}" class="responsive-img" />
+      </figure>
+    {% endif %}
+  </header>
+
+  <section class="guide-content">
+    {{ content | safe }}
+  </section>
+
+  <footer class="guide-footer">
+    {% if estimatedCost %}
+      <p><strong>Estimated Cost:</strong> ¥{{ estimatedCost | toLocaleString('ja-JP') }}</p>
+    {% endif %}
+    {% if region %}
+      <p><strong>Region:</strong> {{ region | capitalize }}</p>
+    {% endif %}
+    {% if city %}
+      <p><strong>City:</strong> {{ city | capitalize }}</p>
+    {% endif %}
+    {% if season %}
+      <p><strong>Best Season:</strong> {{ season | capitalize }}</p>
+    {% endif %}
+    {% if tags %}
+      <p><strong>Tags:</strong> {{ tags | join(', ') }}</p>
+    {% endif %}
+  </footer>
+</article>
+{% endblock %}

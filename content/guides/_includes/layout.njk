@@ -1,33 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-  <link rel="stylesheet" href="/resources/css/style.css">
-  <link rel="stylesheet" href="/resources/css/guides.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} | Blake Porter</title>
+  <meta name="description" content="{{ description or 'Travel guides and insights by Blake Porter' }}">
+  <link rel="stylesheet" href="/resources/css/style.css" />
+  <link rel="stylesheet" href="/resources/css/guides.css" />
+  <link rel="icon" href="/favicon.ico" />
 </head>
-<body>
-    {# Include your global header partial #}
-  {% include "resources/partials/header.html" %}
+<body class="site-body">
+  {% include "partials/header.html" %}
 
-  {% if bannerImage %}
-  <figure class="banner">
-    <img src="{{ bannerImage }}" alt="{{ bannerAlt }}">
-  </figure>
-  {% endif %}
-
-  <main class="container">
-    <h1 class="section-title">{{ title }}</h1>
-    {% if readTime %}
-      <p class="read-time">{{ readTime }}</p>
-    {% endif %}
-    {% if date %}
-      <p class="pub-date">Published on {{ date }}</p>
-    {% endif %}
-    {{ content | safe }}
+  <main class="site-main container">
+    {% block content %}{% endblock %}
   </main>
 
-  {# Include your global footer partial #}
-  {% include "resources/partials/footer.html" %}
+  {% include "partials/footer.html" %}
+</body>
+</html>
