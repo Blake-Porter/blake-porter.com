@@ -1,44 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // —— Lightbox Setup —— //
-    const items      = document.querySelectorAll('.gallery-item img');
-    const overlay    = document.getElementById('lightbox-overlay');
-    const lightboxImg= document.getElementById('lightbox-img');
-    const closeBtn   = document.getElementById('lightbox-close');
-  
-    items.forEach(img => {
-      img.addEventListener('click', () => {
-        const fullSrc = img.getAttribute('data-full');
-        lightboxImg.src = fullSrc;
+    // Lightbox
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.onclick = () => {
+        const overlay = document.getElementById('lightbox-overlay');
+        document.getElementById('lightbox-img').src = img.dataset.full;
         overlay.classList.remove('hidden');
-      });
+      };
     });
-  
-    closeBtn.addEventListener('click', () => {
+    document.getElementById('lightbox-close').onclick = () => {
+      const overlay = document.getElementById('lightbox-overlay');
       overlay.classList.add('hidden');
-      lightboxImg.src = '';
-    });
+      document.getElementById('lightbox-img').src = '';
+    };
   
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) {
-        overlay.classList.add('hidden');
-        lightboxImg.src = '';
-      }
-    });
-  
-    // —— Night/Day Toggle —— //
-    const trigger = document.querySelector('.js-night-mode-trigger');
-    const root    = document.documentElement;
-  
-    // On load, apply saved theme (default: light)
-    const saved = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', saved);
-  
-    // Toggle theme on click
-    trigger.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
+    // Theme toggle
+    const root = document.documentElement;
+    root.setAttribute('data-theme', localStorage.getItem('theme')||'light');
+    document.querySelector('.js-night-mode-trigger').onclick = () => {
+      const next = root.dataset.theme === 'dark' ? 'light':'dark';
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-    });
-  });
+    };
   
+    // Hero scroll & parallax
+    const heroBg = document.querySelector('.hero__background');
+    window.onscroll = () => {
+      const y = window.pageYOffset;
+      heroBg.style.transform = `translateY(${y*0.5}px)`;
+    };
+    document.querySelector('.scroll-button').onclick = e => {
+      e.preventDefault();
+      document.querySelector('#gallery').scrollIntoView({behavior:'smooth'});
+    };
+  });
+
+  // after Masonry setup...
+var infScroll = new InfiniteScroll( '.grid', {
+    path: '.pagination__next',    // your “next page” link selector
+    append: '.grid-item',
+    outlayer: msnry,               // your Masonry instance
+    status: '.page-load-status',
+    history: false,
+  });
+  // make sure images trigger Masonry layout
+  imagesLoaded( '.grid' ).on( 'progress', function() {
+    msnry.layout();
+  });
+
+  // simple IntersectionObserver example
+const grid = document.querySelector('.grid');
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    loadMoreImages()  // your AJAX fetch + append logic
+      .then(() => msnry.layout());
+  }
+});
+observer.observe(document.querySelector('.grid').lastElementChild);
