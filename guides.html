@@ -2,56 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Guides – Blake Porter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog | Blake-Porter.com</title>
+  <!-- Global Styles -->
   <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/guides.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-p6YV1q1v22uBBbe7iC6Z0vha2b+YO1QkrpQmB3F3HXyXE7dubcqQ+xu+KKVYsKPR4p59pRcQ7MTOj6U5wb7Ryg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="guides-page">
   <!-- Header/Nav -->
-  <header id="site-header">
-    <nav class="container">
-      <a href="index.html" class="logo"><h1>Blake Porter</h1></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="guides.html" class="active">Guides</a></li>
-        <li><a href="inspiration.html">Inspiration</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-      <button class="burger" aria-label="Toggle menu">
-        <span class="line"></span><span class="line"></span><span class="line"></span>
-      </button>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="logo">Blake Porter</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="guides.html" class="active">Guides</a></li>
+          <li><a href="inspiration.html">Inspiration</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="blog-section container">
-      <h2>Latest from the Blog</h2>
-      <div class="post-grid">
-        <!-- Repeat this block for each post -->
-        <article class="post-card">
-          <a href="blog/post1.html">
-            <img src="resources/images/post1.jpg" alt="Finding Solitude in the Alps">
-            <h3>Finding Solitude in the Alps</h3>
-            <p>From mountain trails to alpine vistas—join me on a quiet journey.</p>
-          </a>
+    <!-- Region Filters -->
+    <section class="guides-controls container">
+      <button class="filter-btn active" data-region="all">All</button>
+      <button class="filter-btn" data-region="asia">Asia</button>
+      <button class="filter-btn" data-region="europe">Europe</button>
+      <button class="filter-btn" data-region="north-america">North America</button>
+    </section>
+
+    <!-- Sub‑Filters (Countries) -->
+    <section class="subfilter-controls container" aria-hidden="true"></section>
+
+    <!-- Destinations Grid -->
+    <section class="all-destinations container">
+      <div class="destinations-grid">
+        <!-- Asia → Japan -->
+        <article class="destination-card" data-region="asia" data-subregion="japan">
+          <img src="https://via.placeholder.com/300x180?text=Tokyo" alt="Tokyo, Japan">
+          <h3>Tokyo, Japan</h3>
+          <p>3 Itineraries • 5 Tips</p>
+          <a href="guides/tokyo.html" class="btn">Explore &rarr;</a>
         </article>
-        <!-- …more post-card entries… -->
+        <!-- Asia → SEA -->
+        <article class="destination-card" data-region="asia" data-subregion="sea">
+          <img src="https://via.placeholder.com/300x180?text=SEA" alt="Southeast Asia">
+          <h3>Southeast Asia</h3>
+          <p>4 Itineraries • 6 Tips</p>
+          <a href="guides/sea.html" class="btn">Explore &rarr;</a>
+        </article>
+        <!-- Europe -->
+        <article class="destination-card" data-region="europe" data-subregion="europe">
+          <img src="https://via.placeholder.com/300x180?text=Europe" alt="Europe Highlights">
+          <h3>Europe Highlights</h3>
+          <p>1 Itinerary • 3 Tips</p>
+          <a href="guides/europe.html" class="btn">Explore &rarr;</a>
+        </article>
+        <!-- North America → US Parks -->
+        <article class="destination-card" data-region="north-america" data-subregion="us-parks">
+          <img src="https://via.placeholder.com/300x180?text=Yosemite" alt="Yosemite National Park">
+          <h3>Yosemite NP</h3>
+          <p>2 Itineraries • 4 Tips</p>
+          <a href="guides/yosemite.html" class="btn">Explore &rarr;</a>
+        </article>
+        <!-- North America → West Coast -->
+        <article class="destination-card" data-region="north-america" data-subregion="west-coast-us">
+          <img src="https://via.placeholder.com/300x180?text=SF" alt="San Francisco">
+          <h3>San Francisco</h3>
+          <p>1 Itinerary • 2 Tips</p>
+          <a href="guides/san-francisco.html" class="btn">Explore &rarr;</a>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="footer-home text-style">
-    <div class="container">
-      <p>&copy; 2025 Blake Porter</p>
-      <ul class="social-links">
-        <li><a href="#" target="_blank">Instagram</a></li>
-        <li><a href="#" target="_blank">Twitter</a></li>
-        <li><a href="#" target="_blank">LinkedIn</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <script src="resources/js/app.js"></script>
+  <!-- Scripts -->
+  <script src="resources/js/guides.js"></script>
 </body>
 </html>
