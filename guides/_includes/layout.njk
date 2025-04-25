@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="stylesheet" href="/resources/css/guides.css">
+</head>
+<body>
+  <header><!-- global nav --></header>
+
+  {% if bannerImage %}
+  <figure class="banner">
+    <img src="{{ bannerImage }}" alt="{{ bannerAlt }}">
+  </figure>
+  {% endif %}
+
+  <main>
+    <h1>{{ title }}</h1>
+    {% if readTime %}
+      <p class="read-time">{{ readTime }}</p>
+    {% endif %}
+    {% if date %}
+      <p class="pub-date">Published on {{ date }}</p>
+    {% endif %}
+    {{ content | safe }}
+  </main>
+
+  <footer><!-- site footer --></footer>
+</body>
+</html>

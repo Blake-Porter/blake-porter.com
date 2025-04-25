@@ -1,0 +1,30 @@
+/* Variables & Reset */
+:root {
+    --font-sans: 'Poppins', sans-serif;
+    --font-serif: 'Merriweather', serif;
+    --color-primary: #8C4E2A;   /* warm rust */
+    --color-secondary: #2E1F14; /* dark wood */
+    --color-accent: #F2E8DC;    /* soft cream */
+    --color-muted: #7A6E65;     /* gray-brown */
+    --transition: 0.3s ease;
+  }
+  :root.dark-mode {
+    /* Dark Mode Overrides */
+    --color-accent: #2E1F14;
+    --color-secondary: #E0D8CF;
+    --color-primary: #A6784F;
+    --color-muted: #DBD3CC;
+  }
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-secondary);
+    background: var(--color-accent);
+    line-height: 1.6;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
