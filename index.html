@@ -2,81 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Blake Porter - Travel Guides & Inspiration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Honest travel stories, curated photo galleries and simple itineraries by Blake Porter, passionate photographer and traveler.">
-  <title>Blake Porter — Travel & Photography</title>
+  <!-- Global styles -->
   <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/inspiration.css">
 </head>
 <body>
-  <!-- Header -->
+
+  <!-- Site Header / Nav -->
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="header-inner container">
       <a href="index.html" class="logo">Blake Porter</a>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="inspiration.html">Inspiration</a></li>
+          <li><a href="gear.html">Gear</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="gallery.html">Portfolio</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="burger"><span></span><span></span><span></span></button>
       </nav>
     </div>
   </header>
 
-  <!-- Hero with fox navhero background -->
-  <section class="hero">
-    <img src="resources/images/fox_navhero.jpg" alt="Hero image of fox" class="hero-image">
-    <div class="hero-overlay"></div>
-    <div class="hero-content container">
-      <h1>Stories Through My Lens</h1>
-      <p>Join me as I explore remote trails, hidden cafés, and candid moments around the world.</p>
-      <a href="gallery.html" class="btn-primary">View Portfolio</a>
-    </div>
-  </section>
+  <main>
 
-  <!-- About Section -->
-  <section class="section about container" id="about">
-    <h2>About Me</h2>
-    <div class="about-inner">
-      <div class="about-text">
-        <p>Hi, I'm Blake—a photographer fueled by curiosity and coffee. Over the years, I've chased sunrise vistas in the Alps, discovered street art in Tokyo, and found unexpected inspiration on quiet backroads.</p>
-        <p>I craft simple, honest itineraries and capture moments that bring places to life. No frills—just real stories and photos that speak for themselves.</p>
-        <a href="about.html" class="link-secondary">Learn more about my journey &rarr;</a>
+    <!-- 1. Hero Section -->
+    <section class="hero" id="hero">
+      <img class="hero__background" src="resources/images/enoshima_fuji.jpg" alt="Enoshima &amp; Mount Fuji" aria-hidden="true">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1>Travel Guides &amp; Inspiration</h1>
+        <a href="about.html" class="btn primary">Plan Your Trip With Me</a>
       </div>
-      <div class="about-photo">
-        <img src="resources/images/about-me.jpg" alt="Blake Porter portrait">
+    </section>
+
+    <!-- 2. Featured Guides -->
+    <section class="featured-guides container">
+      <h2>Featured Guides</h2>
+      <div class="cards-grid">
+        <article class="guide-card">
+          <img src="resources/images/bamboo_sky.jpg" alt="City Guide: Tokyo">
+          <h3>Tokyo City Guide</h3>
+          <p>A perfect 3-day itinerary through Tokyo’s best neighborhoods, from Shibuya to Asakusa.</p>
+          <a href="guides.html" class="btn">Read Guide</a>
+        </article>
+        <article class="guide-card">
+          <img src="resources/images/fuji_sunset.jpg" alt="Mount Fuji & Hakone">
+          <h3>Mount Fuji &amp; Hakone</h3>
+          <p>Experience Japan’s iconic peak and hot springs in this two-day escape.</p>
+          <a href="guides.html" class="btn">Read Guide</a>
+        </article>
+        <article class="guide-card">
+          <img src="resources/images/tamcoc_river.jpg" alt="Vietnam Adventure">
+          <h3>Vietnam Adventure</h3>
+          <p>Seven days exploring Hanoi, Ha Long Bay, and the rice terraces of Sapa.</p>
+          <a href="guides.html" class="btn">Read Guide</a>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Featured Journeys -->
-  <section class="section journeys container">
-    <h2>Featured Journeys</h2>
-    <div class="feature-grid">
-      <article>
-        <a href="#"><img src="resources/images/journey1.jpg" alt="Journey 1"><h3>Alpine Sunrise</h3><p>Chasing dawn above the clouds in the Swiss Alps.</p></a>
-      </article>
-      <article>
-        <a href="#"><img src="resources/images/journey2.jpg" alt="Journey 2"><h3>Tokyo After Dark</h3><p>Neon-lit alleys and late-night ramen spots.</p></a>
-      </article>
-      <article>
-        <a href="#"><img src="resources/images/journey3.jpg" alt="Journey 3"><h3>Coastal Roadtrip</h3><p>Seaside sunsets and hidden coves along Highway 1.</p></a>
-      </article>
-    </div>
-    <a href="gallery.html#featured" class="btn-secondary">See all journeys</a>
-  </section>
+    <!-- 3. Inspiration Showcase -->
+    <section class="inspiration-showcase container">
+      <h2>Inspiration Gallery</h2>
+      <ul class="gallery-grid mini">
+        <li class="gallery-item"><a href="inspiration.html"><img src="resources/images/aboutme_crop.jpg" alt="About Me"></a></li>
+        <li class="gallery-item"><a href="inspiration.html"><img src="resources/images/autumn_photographer.jpg" alt="Autumn Photographer"></a></li>
+        <li class="gallery-item"><a href="inspiration.html"><img src="resources/images/bridge_reflection.jpg" alt="Bridge Reflection"></a></li>
+        <li class="gallery-item"><a href="inspiration.html"><img src="resources/images/keio_snow.jpg" alt="Keio Snow"></a></li>
+      </ul>
+    </section>
 
-  <!-- Gallery Preview -->
-  <section class="section gallery-preview container">
-    <h2>Quick Photo Snaps</h2>
-    <div class="preview-grid">
-      <a href="gallery.html"><img src="resources/images/hakkoda_cablecar.jpg" alt="Preview 1"></a>
-      <a href="gallery.html"><img src="resources/images/enoshima_fuji.jpg" alt="Preview 2"></a>
-      <a href="gallery.html"><img src="resources/images/fuji_sunset.jpg" alt="Preview 3"></a>
-      <a href="gallery.html"><img src="resources/images/shibuya_snow.jpg" alt="Preview 4"></a>
-      <a href="gallery.html"><img src="resources/images/top_of_innsbruck.jpg" alt="Preview 5"></a>
-      <a href="gallery.html"><img src="resources/images/bamboo_sky.jpg alt="Preview 6"></a>
-    </div>
-  </section>
+    <!-- 4. Plan With Me -->
+    <section class="plan-with-me container">
+      <h2>Plan With Me</h2>
+      <p>Custom itineraries • Restaurant scouting • Insider tips</p>
+      <a href="about.html" class="btn">Let’s Get Started</a>
+    </section>
+
+    <!-- 5. About Me -->
+    <section class="about-section container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="resources/images/aboutme_crop.jpg" alt="Blake Porter" class="about-photo">
+        <div class="about-text">
+          <p>Hi—I’m Blake, a photographer, trip-planner and travel writer. I’ve explored 30+ countries, specializing in off-the-beaten-path itineraries and food adventures. I help people turn their travel dreams into day-by-day plans so they can focus on making memories.</p>
+          <ul class="about-stats">
+            <li><strong>30+</strong> Countries Visited</li>
+            <li><strong>2000+</strong> Photos in my Portfolio</li>
+            <li><strong>5-Star</strong> Reviews (coming soon)</li>
+          </ul>
+          <a href="about.html" class="btn">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer container">
+    <p>&copy; 2025 Blake Porter. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
