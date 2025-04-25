@@ -1,27 +1,16 @@
-module.exports = function(eleventyConfig) {
-  // Copy everything in `resources/` directly to the output
+module.exports = function (eleventyConfig) {
+  // Copy your CSS, JS, images, etc.
   eleventyConfig.addPassthroughCopy("resources");
 
-  return {
-    dir: {
-      input: "guides",    // where your Markdown lives
-      output: "_site"     // where Eleventy writes the built site
-    }
-  };
-};
-
-module.exports = function(eleventyConfig) {
-  // Copy your CSS/JS as before
-  eleventyConfig.addPassthroughCopy("resources");
-
-  // Create a "guides" collection of every Markdown file in guides/
-  eleventyConfig.addCollection("guides", collectionApi => {
-    return collectionApi.getFilteredByGlob("guides/*.md");
+  // Custom collection: all .md files in /content/guides and subfolders
+  eleventyConfig.addCollection("guides", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("content/guides/**/*.md").reverse();
   });
 
   return {
     dir: {
-      input: "guides",
+      input: ".",            // use the root of the project
+      includes: "_includes", // where your layout.njk and guide.njk live
       output: "_site"
     }
   };
