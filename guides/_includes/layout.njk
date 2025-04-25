@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/resources/css/guides.css">
 </head>
 <body>
-  <header><!-- global nav --></header>
+    {# Include your global header partial #}
+  {% include "resources/partials/header.html" %}
 
   {% if bannerImage %}
   <figure class="banner">
@@ -27,6 +28,5 @@
     {{ content | safe }}
   </main>
 
-  <footer><!-- site footer --></footer>
-</body>
-</html>
+  {# Include your global footer partial #}
+  {% include "resources/partials/footer.html" %}
