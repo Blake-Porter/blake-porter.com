@@ -1,16 +1,16 @@
-module.exports = function (eleventyConfig) {
-  // Copy your CSS, JS, images, etc.
+module.exports = function(eleventyConfig) {
+  // Pass through all of your static assets
   eleventyConfig.addPassthroughCopy("resources");
 
-  // Custom collection: all .md files in /content/guides and subfolders
-  eleventyConfig.addCollection("guides", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("content/guides/**/*.md").reverse();
+  // Build a "guides" collection from everything in /guides/**/*.md
+  eleventyConfig.addCollection("guides", collectionApi => {
+    return collectionApi.getFilteredByGlob("guides/**/*.md").reverse();
   });
 
   return {
     dir: {
-      input: ".",            // use the root of the project
-      includes: "_includes", // where your layout.njk and guide.njk live
+      input: ".",            // root of project
+      includes: "_includes", // where layout.njk & guide.njk live
       output: "_site"
     }
   };
