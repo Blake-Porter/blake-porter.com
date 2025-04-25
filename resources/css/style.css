@@ -1,4 +1,4 @@
-/* style.css – Import driver for CSS modules */
+/* style.css – Module import driver */
 @import 'theme.css';
 @import 'base.css';
 @import 'layout.css';

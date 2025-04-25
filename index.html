@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blake Porter</title>
 
-  <!-- Load the single compiled stylesheet -->
-  <link rel="stylesheet" href="/resources/css/style.css">
-
+  <!-- Main compiled stylesheet -->
+  <link rel="stylesheet" href="resources/css/style.css">
   <!-- Web fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Theme toggle button -->
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">Dark Mode</button>
 
   <!-- Site Header / Nav -->
@@ -19,6 +19,11 @@
     <div class="header-inner container">
       <a href="index.html" class="logo">Blake Porter</a>
       <nav>
+        <button class="burger" aria-label="Open menu">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="guides.html">Guides</a></li>
@@ -36,40 +41,40 @@
     <section class="hero" id="hero">
       <img class="hero__background" src="resources/images/enoshima_fuji.jpg" alt="Enoshima &amp; Mount Fuji" aria-hidden="true">
       <div class="hero__overlay" aria-hidden="true"></div>
-      <div class="hero__content">
+      <div class="hero__content container">
         <h1>Travel Guides &amp; Inspiration</h1>
-        <a href="about.html" class="btn primary">Plan Your Trip With Me</a>
+        <a href="about.html" class="btn primary">Plan Your Trip With Me</a>
       </div>
     </section>
 
     <!-- 2. Featured Guides -->
     <section class="featured-guides container">
-      <h2>Featured Guides</h2>
+      <h2 class="section-title">Featured Guides</h2>
       <div class="cards-grid">
         <article class="guide-card">
           <img src="resources/images/bamboo_sky.jpg" alt="City Guide: Tokyo">
           <h3>Tokyo City Guide</h3>
           <p>A perfect 3-day itinerary through Tokyo’s best neighborhoods, from Shibuya to Asakusa.</p>
-          <a href="guides.html" class="btn">Read Guide</a>
+          <a href="guides.html" class="btn">Read Guide</a>
         </article>
         <article class="guide-card">
           <img src="resources/images/fuji_sunset.jpg" alt="Mount Fuji & Hakone">
           <h3>Mount Fuji &amp; Hakone</h3>
           <p>Experience Japan’s iconic peak and hot springs in this two-day escape.</p>
-          <a href="guides.html" class="btn">Read Guide</a>
+          <a href="guides.html" class="btn">Read Guide</a>
         </article>
         <article class="guide-card">
           <img src="resources/images/tamcoc_river.jpg" alt="Vietnam Adventure">
           <h3>Vietnam Adventure</h3>
           <p>Seven days exploring Hanoi, Ha Long Bay, and the rice terraces of Sapa.</p>
-          <a href="guides.html" class="btn">Read Guide</a>
+          <a href="guides.html" class="btn">Read Guide</a>
         </article>
       </div>
     </section>
 
     <!-- 3. Inspiration Showcase -->
     <section class="inspiration-showcase container">
-      <h2>Inspiration Gallery</h2>
+      <h2 class="section-title">Inspiration Gallery</h2>
       <ul class="gallery-grid mini">
         <li class="gallery-item"><a href="inspiration.html"><img src="resources/images/aboutme_crop.jpg" alt="About Me"></a></li>
         <li class="gallery-item"><a href="inspiration.html"><img src="resources/images/autumn_photographer.jpg" alt="Autumn Photographer"></a></li>
@@ -80,16 +85,16 @@
 
     <!-- 4. Plan With Me -->
     <section class="plan-with-me container">
-      <h2>Plan With Me</h2>
+      <h2 class="section-title">Plan With Me</h2>
       <p>Custom itineraries • Restaurant scouting • Insider tips</p>
-      <a href="about.html" class="btn">Let’s Get Started</a>
+      <a href="about.html" class="btn">Let’s Get Started</a>
     </section>
 
     <!-- 5. About Me -->
     <section class="about-section container">
-      <h2>About Me</h2>
+      <h2 class="section-title">About Me</h2>
       <div class="about-content">
-        <img src="resources/images/aboutme_crop.jpg" alt="Blake Porter" class="about-photo">
+        <img class="about-photo" src="resources/images/aboutme_crop.jpg" alt="Blake Porter">
         <div class="about-text">
           <p>Hi—I’m Blake, a photographer, trip-planner and travel writer. I’ve explored 30+ countries, specializing in off-the-beaten-path itineraries and food adventures. I help people turn their travel dreams into day-by-day plans so they can focus on making memories.</p>
           <ul class="about-stats">
@@ -97,7 +102,7 @@
             <li><strong>2000+</strong> Photos in my Portfolio</li>
             <li><strong>5-Star</strong> Reviews (coming soon)</li>
           </ul>
-          <a href="about.html" class="btn">Learn More</a>
+          <a href="about.html" class="btn">Learn More</a>
         </div>
       </div>
     </section>
@@ -107,7 +112,20 @@
   <!-- Footer -->
   <footer class="site-footer container">
     <p>&copy; 2025 Blake Porter. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+    </div>
   </footer>
 
+  <!-- Theme toggle script -->
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark-mode');
+      toggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    });
+  </script>
 </body>
 </html>
