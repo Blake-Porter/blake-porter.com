@@ -1,16 +1,17 @@
 module.exports = function(eleventyConfig) {
-  // Pass through all of your static assets
+  // Copy static assets
   eleventyConfig.addPassthroughCopy("resources");
 
-  // Build a "guides" collection from everything in /guides/**/*.md
+  // Build a "guides" collection from content/guides/**/*.md
   eleventyConfig.addCollection("guides", collectionApi => {
-    return collectionApi.getFilteredByGlob("guides/**/*.md").reverse();
+    return collectionApi.getFilteredByGlob("content/guides/**/*.md").reverse();
   });
 
   return {
     dir: {
-      input: ".",            // root of project
-      includes: "_includes", // where layout.njk & guide.njk live
+      input: ".",             // project root
+      includes: "_includes",  // where layout.njk lives
+      data: "content",        // optional: if you store global data under /content/_data
       output: "_site"
     }
   };

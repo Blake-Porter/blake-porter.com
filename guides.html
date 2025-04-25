@@ -20,43 +20,37 @@ layout: layout.njk
   <button class="filter-btn" data-filter="tips-gear">Tips & Gear</button>
 </section>
 
-<section class="subfilter-controls container" aria-hidden="true"></section>
-
 <section class="destinations-grid container">
   {% for guide in collections.guides %}
-  <article class="guide-card" data-category="{{ guide.data.category }}" data-region="{{ guide.data.region }}">
-    <a href="{{ guide.url }}">
-      <div class="guide-thumbnail">
-        <img src="{{ guide.data.bannerImage }}" alt="{{ guide.data.bannerAlt or guide.data.title }}">
-      </div>
-      <div class="guide-summary">
-        <h3>{{ guide.data.title }}</h3>
-        <p>{{ guide.data.description }}</p>
-        <p class="guide-meta">{{ guide.data.readTime }} • {{ guide.data.region | capitalize }}</p>
-      </div>
-    </a>
-  </article>
+    <article class="guide-card"
+             data-category="{{ guide.data.category }}"
+             data-region="{{ guide.data.region }}">
+      <a href="{{ guide.url }}">
+        <div class="guide-thumbnail">
+          <img src="{{ guide.data.bannerImage }}" alt="{{ guide.data.bannerAlt or guide.data.title }}">
+        </div>
+        <div class="guide-summary">
+          <h3>{{ guide.data.title }}</h3>
+          <p>{{ guide.data.description }}</p>
+          <p class="guide-meta">
+            {{ guide.data.readTime }} • {{ guide.data.region | capitalize }}
+          </p>
+        </div>
+      </a>
+    </article>
   {% endfor %}
 </section>
 
 <script src="/resources/js/main.js"></script>
 <script src="/resources/js/guides.js"></script>
-
 <script>
-// JS filter toggle
-document.querySelectorAll('.filter-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const filter = button.dataset.filter;
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    document.querySelectorAll('.guide-card').forEach(card => {
-      if (filter === 'all' || card.dataset.category === filter) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b===btn));
+      document.querySelectorAll('.guide-card').forEach(card => {
+        card.style.display = (filter==='all' || card.dataset.category===filter) ? '' : 'none';
+      });
     });
   });
-});
 </script>
