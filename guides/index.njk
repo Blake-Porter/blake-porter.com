@@ -4,6 +4,9 @@ layout: layout.njk
 permalink: "guides/index.html"
 ---
 
+{# DEBUG: show how many guides we found #}
+<p>Total guides found: {{ collections.guides | length }}</p>
+
 <section class="guides-controls container">
   <button class="filter-btn active" data-filter="all">All</button>
   <button class="filter-btn" data-filter="itineraries">Itineraries</button>
@@ -38,16 +41,13 @@ permalink: "guides/index.html"
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-      document
-        .querySelectorAll('.filter-btn')
-        .forEach(b => b.classList.toggle('active', b===btn));
-      document
-        .querySelectorAll('.guide-card')
-        .forEach(card => {
-          card.style.display =
-            (filter==='all' || card.dataset.category===filter)
-              ? '' : 'none';
-        });
+      document.querySelectorAll('.filter-btn')
+              .forEach(b => b.classList.toggle('active', b===btn));
+      document.querySelectorAll('.guide-card')
+              .forEach(card => {
+                card.style.display = (filter==='all' || card.dataset.category===filter)
+                                     ? '' : 'none';
+              });
     });
   });
 </script>
