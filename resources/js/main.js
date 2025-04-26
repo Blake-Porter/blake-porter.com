@@ -29,3 +29,15 @@ if (switcher) {
   });
 }
 
+// Mobile Navigation Toggle
+const menuToggle = document.querySelector('.js-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const burger = document.querySelector('.burger');
+
+if (menuToggle && navLinks && burger) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    burger.classList.toggle('active');
+  });
+}
+

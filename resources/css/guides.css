@@ -1,51 +1,48 @@
-
-/* General Layout Enhancements */
 .site-main.container {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-/* Guide Post Wrapper */
+/* Guide Post Layout */
 .guide-post {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.7;
-  color: #333;
+  color: var(--text-dark);
 }
 
-/* Header Styling */
 .guide-header {
   margin-bottom: 2rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-light);
   padding-bottom: 1rem;
 }
 
 .guide-title {
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 700;
   margin: 0;
+  color: var(--text-dark);
 }
 
 .guide-meta {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--text-light);
   margin: 0.25rem 0;
 }
 
-/* Banner Styling */
+/* Guide Banner */
 .guide-banner {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .guide-banner img.responsive-img {
   width: 100%;
   height: auto;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Main Content Styling */
+/* Guide Content */
 .guide-content {
   margin-top: 2rem;
 }
@@ -54,19 +51,20 @@
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: 600;
+  color: var(--text-dark);
 }
 
 .guide-content p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Footer Metadata Section */
+/* Footer Section */
 .guide-footer {
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-light);
   font-size: 0.95rem;
-  color: #444;
+  color: var(--text-light);
 }
 
 .guide-footer p {
