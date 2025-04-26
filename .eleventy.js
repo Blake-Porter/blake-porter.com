@@ -1,21 +1,24 @@
+// .eleventy.js
 module.exports = function(eleventyConfig) {
-  // 1) Copy all of your static assets unchanged
+  // 1. Copy your static assets
   eleventyConfig.addPassthroughCopy("resources");
 
-  // 2) Build your “guides” collection from whatever you have under content/
+  // 2. Copy all root HTML so your home/about/inspiration/services still live
+  eleventyConfig.addPassthroughCopy("*.html");
+
+  // 3. Build a “guides” collection from your Markdown
   eleventyConfig.addCollection("guides", c =>
-    c.getFilteredByGlob("content/guides/**/*.md")
-     .reverse()
+    c.getFilteredByGlob("content/**/*.md")
   );
 
-  // 3) Ignore any template‐only folders you might have
+  // 4. Ignore any “templates-only” folders you might have
   eleventyConfig.ignores.add("_templates");
 
-  // 4) Here’s the critical bit—point Eleventy at the project root:
+  // 5. Tell Eleventy where to look
   return {
     dir: {
-      input: ".",            // ← **must** be your repo root
-      includes: "_includes", // where your layouts & partials live
+      input:  ".",           // project root
+      includes: "_includes", // your layouts & partials
       output: "_site"
     }
   };

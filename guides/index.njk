@@ -1,17 +1,8 @@
 ---
 title: "Guides"
 layout: layout.njk
+permalink: "guides/index.html"
 ---
-
-<div class="vlt-night-mode-switcher js-night-mode-trigger">
-  <div class="vlt-night-mode-switcher__states">
-    <span class="day">Light <i class="fa-regular fa-fw fa-brightness"></i></span>
-  </div>
-  <div class="vlt-night-mode-switcher__toggle"></div>
-  <div class="vlt-night-mode-switcher__states">
-    <span class="night">Dark <i class="fa-solid fa-fw fa-moon"></i></span>
-  </div>
-</div>
 
 <section class="guides-controls container">
   <button class="filter-btn active" data-filter="all">All</button>
@@ -47,10 +38,16 @@ layout: layout.njk
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b===btn));
-      document.querySelectorAll('.guide-card').forEach(card => {
-        card.style.display = (filter==='all' || card.dataset.category===filter) ? '' : 'none';
-      });
+      document
+        .querySelectorAll('.filter-btn')
+        .forEach(b => b.classList.toggle('active', b===btn));
+      document
+        .querySelectorAll('.guide-card')
+        .forEach(card => {
+          card.style.display =
+            (filter==='all' || card.dataset.category===filter)
+              ? '' : 'none';
+        });
     });
   });
 </script>

@@ -1,23 +1,22 @@
 ---
-layout: layout.njk
+layout: guide.njk
 title: "3 Days in Tokyo"
 description: "Explore Tokyo over three action-packed days, from temples to nightlife."
 date: 2025-05-01
 author: "Blake Porter"
 region: "japan"
 city: "tokyo"
-type: "itinerary"
+category: "itineraries"
 readTime: "7 min read"
-bannerImage: "/images/tokyo-banner.jpg"
+bannerImage: "/resources/images/guides/itineraries/tokyo-itinerary/banner.jpg"
 bannerAlt: "Tokyo skyline at sunset"
 tags:
   - culture
   - food
-categories:
-  - itinerary
-estimatedCost: "30000"
+estimatedCostYen: 30000
 season: "spring"
-canonicalURL: "https://blake-porter.com/guides/japan/tokyo-3-day-itinerary/"
+canonicalURL: "https://blake-porter.com/guides/itineraries/tokyo-itinerary/"
+permalink: "guides/itineraries/tokyo-itinerary/index.html"
 ---
 
 ## Day 1: Temples & Gardens
