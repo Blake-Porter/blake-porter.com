@@ -1,0 +1,79 @@
+/* resources/css/about.css */
+
+/* Full width hero breakout */
+.hero.about-page {
+    background: var(--background-light);
+    margin: 0 -5%; /* stretch beyond container */
+    padding: 3rem 0;
+    width: 110%;
+  }
+  
+  /* Inner Flex Layout */
+  .hero-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Portrait Image */
+  .hero-about-portrait {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+  
+  /* Text Block */
+  .hero-about-text {
+    max-width: 520px;
+  }
+  
+  /* Title */
+  .hero-about-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+  }
+  
+  /* Subtitle */
+  .hero-about-subtitle p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+  }
+  
+  /* About Content Text (Hi, I'm Blake) */
+  .about-content {
+    margin-top: 4rem;
+    padding: 0 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .about-content p {
+    line-height: 1.8;
+    color: var(--text-dark);
+  }
+  
+  /* Responsive Mobile */
+  @media (max-width: 768px) {
+    .hero-about {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-about-text {
+      max-width: 100%;
+    }
+  
+    .hero-about-portrait {
+      max-width: 300px;
+    }
+  }
+  
