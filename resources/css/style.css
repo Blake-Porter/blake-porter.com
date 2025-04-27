@@ -205,8 +205,11 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-green);
 }
 
-/* Hero Section */
+/* Homepage Hero Section */
 .hero {
+  background-image: url('/resources/images/ninbinh_temple_above.jpg');
+  background-size: cover;
+  background-position: center;
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -247,12 +250,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-btn:hover {
   background: var(--secondary-accent);
-}
-
-body.homepage .hero {
-  background-image: url('/resources/images/ninbinh_temple_above.jpg');
-  background-size: cover;
-  background-position: center;
 }
 
 /* Guide & Gallery Grid */
