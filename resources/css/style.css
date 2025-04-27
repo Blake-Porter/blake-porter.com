@@ -1,4 +1,4 @@
-/* resources/css/style.css — FULL RESET */
+/* resources/css/style.css — FULL CLEANED RESET */
 
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
@@ -31,13 +31,31 @@ body {
 }
 
 a {
+  position: relative;
+  display: inline-block;
   text-decoration: none;
   color: var(--secondary-accent);
+  overflow: hidden;
   transition: color 0.3s;
 }
 
 a:hover {
   color: var(--primary-green);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: white;
 }
 
-/* Desktop Nav */
+/* Navigation */
 .nav-container {
   display: flex;
   align-items: center;
@@ -112,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* Burger */
+/* Mobile Burger */
 .burger {
   display: none;
   flex-direction: column;
@@ -136,9 +154,11 @@ h1, h2, h3, h4, h5, h6 {
 .burger.active .line:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
+
 .burger.active .line:nth-child(2) {
   opacity: 0;
 }
+
 .burger.active .line:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
@@ -187,9 +207,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-  background-image: url('/resources/images/ninbinh_temple_above.jpg');
-  background-size: cover;
-  background-position: center;
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -232,7 +249,52 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--secondary-accent);
 }
 
-/* Guide Grid */
+body.homepage .hero {
+  background-image: url('/resources/images/ninbinh_temple_above.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* About Hero Section */
+.hero.about-page {
+  padding: 2rem 0; /* reduce top/bottom spacing */
+  background: var(--background-light); /* no unnecessary gray feeling */
+}
+
+/* Hero About Content */
+.hero-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 0; /* much tighter spacing inside */
+}
+
+/* Portrait */
+.hero-about-portrait {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Hero Text */
+.hero-about-text {
+  max-width: 500px;
+}
+.hero-about-title h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-about-subtitle p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+/* Guide & Gallery Grid */
 .guide-grid, .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -272,99 +334,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-green);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .burger {
-    display: flex;
-  }
-}
-
-.featured-guides {
-  margin-top: 4rem;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.guide-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.guide-card {
-  background: white;
-  border: 1px solid var(--border-light);
-  border-radius: 8px;
-  overflow: hidden;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-}
-
-.guide-card:hover {
-  transform: translateY(-5px);
-}
-
-.guide-card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.guide-card h3 {
-  margin-top: 1rem;
-  font-size: 1.3rem;
-  color: var(--text-dark);
-}
-
-.guide-card p {
-  color: var(--text-light);
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
-
-.guide-card .btn {
-  margin-top: 1rem;
-}
-
-.inspiration-gallery {
-  margin-top: 5rem;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.gallery-item {
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  display: block;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
+/* Buttons */
 button, .btn {
   display: inline-block;
   background-color: var(--primary-green);
@@ -382,5 +352,60 @@ button, .btn {
 
 button:hover, .btn:hover {
   background-color: var(--secondary-accent);
-  transform: translateY(-2px);
+  transform: scale(1.03);
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+}
+
+/* Misc */
+.featured-guides {
+  margin-top: 4rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.inspiration-gallery {
+  margin-top: 5rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background 0.3s, box-shadow 0.3s;
 }
