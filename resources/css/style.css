@@ -293,3 +293,47 @@ hr {
     display: none;
   }
 }
+
+/* Slide-out Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -70%;
+  width: 70%;
+  height: 100%;
+  background: white;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.1);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: right 0.3s ease;
+  z-index: 200;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-links li {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.mobile-nav-links li a {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.mobile-nav-links li a:hover {
+  color: var(--primary-green);
+}
