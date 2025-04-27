@@ -1,12 +1,13 @@
+/* resources/css/style.css */
+
 /* Import DM Sans Font */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 :root {
-  /* Color Palette */
-  --primary-green: #355E3B; /* Deep forest green */
-  --secondary-accent: #4A7C59; /* Softer green accent */
-  --background-light: #f5f5f4; /* Off-white background */
-  --background-accent: #e6e6e6; /* Soft neutral for containers */
+  --primary-green: #355E3B;
+  --secondary-accent: #4A7C59;
+  --background-light: #f5f5f4;
+  --background-accent: #e6e6e6;
   --text-dark: #1f1f1f;
   --text-light: #666666;
   --border-light: #dcdcdc;
@@ -37,20 +38,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  background-color: white;
-  padding: 2.5rem;
-  border: 1px solid var(--background-accent);
-  border-radius: 16px;
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 button, .btn {
   background-color: var(--primary-green);
   color: white;
   border: none;
-  padding: 0.7em 1.4em;
+  padding: 0.6em 1.2em;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
@@ -68,61 +66,11 @@ hr {
   margin: 2rem 0;
 }
 
-.guides-controls {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.filter-btn {
-  margin: 0.5rem;
-  background-color: var(--secondary-accent);
-  color: white;
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filter-btn:hover {
-  background-color: var(--primary-green);
-}
-
-.guide-card {
-  background: white;
-  border: 1px solid var(--border-light);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.guide-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.guide-thumbnail img {
-  width: 100%;
-  height: auto;
-  display: block;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-}
-
-.guide-summary {
-  padding: 1.5rem;
-}
-
-.guide-meta {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  margin-top: 0.5rem;
-}
-
+/* Header */
 .site-header {
   background-color: white;
   border-bottom: 1px solid var(--border-light);
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
 }
 
 .header-inner {
@@ -132,15 +80,14 @@ hr {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--primary-green);
+  padding: 0.3rem 0.8rem;
   border: 2px solid var(--primary-green);
-  padding: 0.3rem 0.7rem;
   border-radius: 6px;
-  line-height: 1.2;
 }
 
 .nav-links {
@@ -148,13 +95,12 @@ hr {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .nav-links li a {
   color: var(--text-dark);
   font-weight: 500;
-  font-size: 1rem;
   padding: 0.5rem 0.8rem;
   border-radius: 6px;
   transition: background-color 0.3s ease;
@@ -164,12 +110,112 @@ hr {
   background-color: var(--background-accent);
 }
 
+/* Special homepage header */
+.special-homepage-header {
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: none;
+}
+
+.special-homepage-header .nav-links li a {
+  color: white;
+}
+
+.special-homepage-header .nav-links li a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.special-homepage-header .logo {
+  color: white;
+  border-color: white;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background-image: url('/resources/images/ninbinh_temple_above.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.hero-title, .hero-btn {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-btn {
+  margin-top: 2rem;
+}
+
+/* Featured Guides */
+.featured-guides {
+  margin-top: 4rem;
+}
+
+.section-title {
+  text-align: center;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.guide-card img, 
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Inspiration Gallery */
+.inspiration-gallery {
+  margin-top: 5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Footer */
 .site-footer {
   background-color: white;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   text-align: center;
   border-top: 1px solid var(--border-light);
-  margin-top: 3rem;
 }
 
 .site-footer p {
