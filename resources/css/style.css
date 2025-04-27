@@ -62,36 +62,48 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
 }
 
-/* Header */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Header Wrapper                                                         */
+/*──────────────────────────────────────────────────────────────────────────*/
 .site-header {
+  position: relative;
   width: 100%;
   padding: 1rem 0;
   background: white;
   border-bottom: 1px solid var(--border-light);
-  position: relative;
 }
 
 .special-homepage-header {
-  background: transparent;
-  border: none;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
   z-index: 100;
+}
+
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Inner Flex Container                                                   */
+/*──────────────────────────────────────────────────────────────────────────*/
+.header-inner {
+  position: relative;       /* for absolute children */
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;        /* gutter on both sides */
   width: 100%;
 }
 
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Logo                                                                   */
+/*──────────────────────────────────────────────────────────────────────────*/
 .logo {
+  order: 1;
+  margin-right: auto;       /* keeps it flush left */
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--primary-green);
   padding: 0.3rem 0.8rem;
+  color: var(--primary-green);
   border: 2px solid var(--primary-green);
   border-radius: 8px;
   text-transform: uppercase;
@@ -102,7 +114,16 @@ h1, h2, h3, h4, h5, h6 {
   border-color: white;
 }
 
-/* Navigation */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Desktop Navigation                                                     */
+/*──────────────────────────────────────────────────────────────────────────*/
+.header-inner nav {
+  order: 2;
+  position: absolute;       /* taken out of flow for perfect centering */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -112,6 +133,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   list-style: none;
   gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
@@ -130,23 +153,26 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* Mobile Burger */
-.burger {
-  display: none;
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Mobile “Burger” Toggle                                                 */
+/*──────────────────────────────────────────────────────────────────────────*/
+.header-inner .burger {
+  order: 3;
+  display: none;            /* shown via media query */
   flex-direction: column;
   justify-content: space-between;
   width: 24px;
   height: 18px;
   background: none;
   border: none;
-  margin-left: 2rem;
+  margin-left: 2rem;        /* pushes it to far right */
   cursor: pointer;
 }
 
 .burger .line {
   width: 100%;
   height: 3px;
-  background: white;
+  background: var(--text-dark);
   border-radius: 2px;
   transition: all 0.3s;
 }
@@ -154,16 +180,16 @@ h1, h2, h3, h4, h5, h6 {
 .burger.active .line:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 .burger.active .line:nth-child(2) {
   opacity: 0;
 }
-
 .burger.active .line:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Menu */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Mobile Slide-Out Menu                                                   */
+/*──────────────────────────────────────────────────────────────────────────*/
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -185,8 +211,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-nav-links {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .mobile-nav-links li {
@@ -194,15 +220,54 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-links li a {
+  display: block;
   font-size: 1.4rem;
   color: var(--text-dark);
   border-bottom: 1px solid var(--border-light);
   padding-bottom: 0.5rem;
-  display: block;
+  transition: color 0.3s;
 }
 
 .mobile-nav-links li a:hover {
   color: var(--primary-green);
+}
+
+/* Mobile Burger & Responsive Override                                     */
+/*──────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  /* Hide desktop links */
+  .header-inner .nav-links {
+    display: none !important;
+  }
+
+  /* Show burger button */
+  .header-inner .burger {
+    display: flex !important;
+    z-index: 150;                    /* sit above everything */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  /* Style the three bars */
+  .header-inner .burger .line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--text-dark) !important;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* White bars on homepage (dark background) */
+  .special-homepage-header .burger .line {
+    background: white !important;
+  }
 }
 
 /* Homepage Hero Section */
@@ -210,7 +275,8 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url('/resources/images/ninbinh_temple_above.jpg');
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -311,16 +377,6 @@ button, .btn {
 button:hover, .btn:hover {
   background-color: var(--secondary-accent);
   transform: scale(1.03);
-}
-
-/* Responsive Nav */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .burger {
-    display: flex;
-  }
 }
 
 /* Misc */
