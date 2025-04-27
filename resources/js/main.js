@@ -41,3 +41,23 @@ if (menuToggle && navLinks && burger) {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.querySelector('.burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // New: Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!mobileMenu.contains(target) && !burger.contains(target)) {
+        burger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+  }
+});
