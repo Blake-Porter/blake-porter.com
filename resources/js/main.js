@@ -1,3 +1,5 @@
+// resources/js/main.js
+
 // Simple HTML partial include
 document.querySelectorAll('[data-include]').forEach(el => {
   const path = el.getAttribute('data-include');
@@ -5,18 +7,17 @@ document.querySelectorAll('[data-include]').forEach(el => {
     .then(resp => resp.text())
     .then(html => {
       el.outerHTML = html;
-      // if you need to re-run any JS (e.g. burger toggle), you can do so here
     })
     .catch(console.error);
 });
 
-// Detect non-index pages and mark them “subpage”
+// Detect non-index pages and mark them "subpage"
 const path = window.location.pathname.split('/').pop();
 if (path && path !== '' && path !== 'index.html') {
   document.body.classList.add('subpage');
 }
 
-// Night-mode switcher (for inspiration page only)
+// Night-mode switcher (only for inspiration page)
 const switcher = document.querySelector('.js-night-mode-trigger');
 if (switcher) {
   switcher.addEventListener('click', () => {
@@ -32,17 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobileMenu');
 
   if (burger && mobileMenu) {
-    burger.addEventListener('click', () => {
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
       burger.classList.toggle('active');
       mobileMenu.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
     });
 
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-      const target = e.target;
-      if (!mobileMenu.contains(target) && !burger.contains(target)) {
+      if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
         burger.classList.remove('active');
         mobileMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
     });
   }
