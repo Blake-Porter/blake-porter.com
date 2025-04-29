@@ -1,35 +1,48 @@
 ---
 layout: guide.njk
+slug: "tokyo-itinerary"
 title: "3 Days in Tokyo"
-description: "Explore Tokyo over three action-packed days, from temples to nightlife."
 date: 2025-05-01
 author: "Blake Porter"
-region: "japan"
-city: "tokyo"
+description: "Explore Tokyo over three action-packed days, from temples to nightlife."
+keywords: "3 days Tokyo itinerary, Tokyo travel"
 category: "itineraries"
-readTime: "7 min read"
-bannerImage: "/resources/images/guides/itineraries/tokyo-itinerary/banner.jpg"
-bannerAlt: "Tokyo skyline at sunset"
 tags:
   - culture
   - food
-estimatedCostYen: 30000
-season: "spring"
-canonicalURL: "https://blake-porter.com/guides/itineraries/tokyo-itinerary/"
-permalink: "guides/itineraries/tokyo-itinerary/index.html"
+
+bannerImage: "/resources/images/guides/itineraries/tokyo-itinerary/banner.jpg"
+bannerAlt: "Tokyo skyline at sunset"
+
+region: "Asia"
+country: "Japan"
+subregion: "Kanto"
+city: "Tokyo"
+area: ""
+
+excerpt: ""
+readTime: "7 min read"
+canonicalURL: "https://blake-porter.com/guides/tokyo-itinerary.html"
+socialImage: "/resources/images/guides/itineraries/tokyo-itinerary/social.jpg"
+socialImageAlt: "Tokyo city skyline featured image"
+updated: 2025-05-01
+mapLink: ""
+mapEmbed: ""
+robots: "index,follow"
 ---
 
-## Day 1: Temples & Gardens
+## Day 1 (May 5)
 
-- **Morning**: Visit Senso-ji in Asakusa  
-- **Afternoon**: Stroll through Ueno Park  
+- Land at Haneda (3:25 PM), drop bags, chill in Ikebukuro  
+- Evening: Ramen & izakaya crawl in Shinjuku  
 
-## Day 2: Modern Tokyo
+## Day 2 (May 6)
 
-- **Morning**: Shibuya Crossing  
-- **Afternoon**: Meiji Shrine & Harajuku  
+- Morning: Imperial Palace Gardens  
+- Afternoon: TeamLab Planets exhibit  
+- Evening: Tokyo Tower lights & all-night music event  
 
-## Day 3: Waterfront & Nightlife
+## Day 3 (May 7)
 
-- **Morning**: Odaiba seaside park  
-- **Evening**: Shinjuku Golden Gai  
+- Ghibli Museum visit  
+- Chill afternoon before heading on to Kyoto  

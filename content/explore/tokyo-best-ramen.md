@@ -1,24 +1,36 @@
 ---
 layout: guide.njk
-title: "Tokyo’s Top 5 Ramen Shops You Can't Miss"
 slug: "tokyo-best-ramen"
-description: "From legendary shoyu bowls to numbing spicy miso, here’s your ultimate guide to Tokyo’s ramen scene."
-excerpt: "Discover Tokyo’s most iconic and hidden ramen gems—from rich pork broths to fiery miso spice."
+title: "Tokyo’s Top 5 Ramen Shops You Can't Miss"
 date: 2025-04-26
 author: "Blake Porter"
-region: "japan"
-city: "tokyo"
+description: "From legendary shoyu bowls to numbing spicy miso, here’s your ultimate guide to Tokyo’s ramen scene."
+keywords: "Tokyo ramen, ramen shops Tokyo, Tokyo food guide"
 category: "explore"
 tags:
   - ramen
   - tokyo
   - explore
-readTime: "5 min read"
-bannerImage: "/resources/images/guides/features//tokyo-best-ramen/banner.jpg"
-bannerAlt: "Steaming bowls of ramen in a Tokyo restaurant"
+
+bannerImage: "/resources/images/guides/explore/tokyo-best-ramen/banner.jpg"
+bannerAlt: "Steaming bowl of ramen in a Tokyo alley"
+
+region: "Asia"
+country: "Japan"
+subregion: "Kanto"
+city: "Tokyo"
+area: ""
+
 estimatedCostYen: 2000
-season: "all-year"
+excerpt: "Discover Tokyo’s most iconic and hidden ramen gems—from rich pork broths to fiery miso spice."
+readTime: "5 min read"
 canonicalURL: "https://blake-porter.com/guides/tokyo-best-ramen.html"
+socialImage: "/resources/images/guides/explore/tokyo-best-ramen/social.jpg"
+socialImageAlt: "Bowl of ramen with scallions in a Tokyo alley"
+updated: 2025-04-26
+mapLink: ""
+mapEmbed: ""
+robots: "index,follow"
 ---
 
 ## 🛤 Introduction
@@ -88,7 +100,7 @@ Certified by the Chinese government, it’s an authentic and unique experience r
 ## 📷 Gallery
 
 <div class="gallery-item">
-  <img src="/resources/images/guides/features/tokyo-best-ramen/taishoken.jpg" alt="Taishoken Ramen" class="gallery-img">
+  <img src="/resources/images/guides/explore/tokyo-best-ramen/taishoken.jpg" alt="Taishoken Ramen" class="gallery-img">
   <div class="gallery-text">
     **Taishoken Ramen**  
     Classic Tokyo soy broth with a bright lemon twist. Huge portions!
@@ -96,7 +108,7 @@ Certified by the Chinese government, it’s an authentic and unique experience r
 </div>
 
 <div class="gallery-item">
-  <img src="/resources/images/guides/features/tokyo-best-ramen/kikanbo.jpg" alt="Kikanbo Spicy Ramen" class="gallery-img">
+  <img src="/resources/images/guides/explore/tokyo-best-ramen/kikanbo.jpg" alt="Kikanbo Spicy Ramen" class="gallery-img">
   <div class="gallery-text">
     **Kikanbo Ramen**  
     Miso spice explosion — tongue-numbing peppers meet juicy chashu.
@@ -104,7 +116,7 @@ Certified by the Chinese government, it’s an authentic and unique experience r
 </div>
 
 <div class="gallery-item">
-  <img src="/resources/images/guides/features/tokyo-best-ramen/toraibu.jpg" alt="Toraibu Yokohama Style" class="gallery-img">
+  <img src="/resources/images/guides/explore/tokyo-best-ramen/toraibu.jpg" alt="Toraibu Yokohama Style" class="gallery-img">
   <div class="gallery-text">
     **Toraibu Ramen**  
     Thick Yokohama pork broth with garlic and black bean magic.
@@ -112,7 +124,7 @@ Certified by the Chinese government, it’s an authentic and unique experience r
 </div>
 
 <div class="gallery-item">
-  <img src="/resources/images/guides/features/tokyo-best-ramen/gonokami.jpg" alt="Gonokami Tsukemen" class="gallery-img">
+  <img src="/resources/images/guides/explore/tokyo-best-ramen/gonokami.jpg" alt="Gonokami Tsukemen" class="gallery-img">
   <div class="gallery-text">
     **Gonokami Tsukemen**  
     Shrimp-packed dipping noodles with wild toppings like pesto.
@@ -120,7 +132,7 @@ Certified by the Chinese government, it’s an authentic and unique experience r
 </div>
 
 <div class="gallery-item">
-  <img src="/resources/images/guides/features/tokyo-best-ramen/mazilu.jpg" alt="Mazilu Lanzhou Beef Noodles" class="gallery-img">
+  <img src="/resources/images/guides/explore/tokyo-best-ramen/mazilu.jpg" alt="Mazilu Lanzhou Beef Noodles" class="gallery-img">
   <div class="gallery-text">
     **Mazilu Beef Noodles**  
     Authentic halal beef broth with 9 noodle choices!
