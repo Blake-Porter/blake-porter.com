@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/resources/css/guides.css" />
   <link rel="icon" href="/favicon.ico" />
 </head>
-<body class="site-body">
+<body class="site-body {% if page.url != '/' %}subpage{% endif %}">
   {% include "partials/header.html" %}
   <main class="site-main container">
     {{ content | safe }}

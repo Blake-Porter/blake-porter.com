@@ -1,203 +1,93 @@
-.site-main.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+:root {
+  --primary-green: #355E3B;
+  --border-light: #dcdcdc;
+  --text-dark: #1f1f1f;
+  --text-light: #666666;
 }
 
-/* Guide Post Layout */
-.guide-post {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.7;
-  color: var(--text-dark);
-}
-
-.guide-header {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 1rem;
-}
-
-.guide-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  color: var(--text-dark);
-}
-
-.guide-meta {
-  font-size: 0.95rem;
-  color: var(--text-light);
-  margin: 0.25rem 0;
-}
-
-/* Guide Banner */
-.guide-banner {
+.guides-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   margin: 2rem 0;
 }
 
-.guide-banner img.responsive-img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-light);
+  background: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Guide Content */
-.guide-content {
-  margin-top: 2rem;
+.filter-btn.active {
+  background: var(--primary-green);
+  color: white;
 }
 
-.guide-content h2, .guide-content h3 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  color: var(--text-dark);
-}
-
-.guide-content p {
-  margin-bottom: 1.5rem;
-}
-
-/* Footer Section */
-.guide-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-light);
-  font-size: 0.95rem;
-  color: var(--text-light);
-}
-
-.guide-footer p {
-  margin-bottom: 0.5rem;
-}
-
-.gallery-item {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.gallery-img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.gallery-text {
-  font-size: 1rem;
-  color: var(--text-dark);
-  max-width: 600px;
-}
-
-/*────────────────────────────────────────────────────────────────────────*/
-/* 1) GUIDES INDEX ( /guides/ )                                          */
-/*────────────────────────────────────────────────────────────────────────*/
-.guides-controls,
-.destinations-grid {
-  margin: 4rem 0;
-  padding: 0 1.5rem;
-}
-
-.destinations-grid {
+.guide-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
-/* If you’re using Eleventy cards like this: */
 .guide-card {
-  background: #fff;
+  background: white;
   border: 1px solid var(--border-light);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
 }
+
 .guide-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.guide-thumbnail img {
+
+.guide-thumbnail {
   width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  display: block;
 }
+
 .guide-summary {
-  padding: 1.5rem;
-  text-align: center;
+  padding: 1rem;
+  color: var(--text-dark);
 }
+
 .guide-summary h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
 }
+
 .guide-summary p {
-  font-size: 1rem;
+  margin: 0 0 0.75rem;
   color: var(--text-light);
-  line-height: 1.5;
-}
-
-/*────────────────────────────────────────────────────────────────────────*/
-/* 2) SINGLE GUIDE POST ( .guide-post )                                  */
-/*────────────────────────────────────────────────────────────────────────*/
-.site-main.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 3rem 1rem;        /* bump top/bottom padding */
-}
-
-.guide-header {
-  margin-bottom: 3rem;      /* more breathing room under title */
-}
-
-.guide-banner {
-  margin: 3rem 0;           /* larger gap above & below banner */
-}
-
-.guide-content {
-  margin-top: 3rem;
-}
-
-/* Headings & paragraphs */
-.guide-content h2,
-.guide-content h3 {
-  margin: 3rem 0 1rem;      /* bigger space before each section */
-}
-.guide-content p {
-  margin-bottom: 2rem;      /* loosen paragraph spacing */
-  line-height: 1.8;
-}
-
-/* Gallery items */
-.gallery-item {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;    /* extra gap between each photo block */
-}
-.gallery-img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-.gallery-text {
-  font-size: 1rem;
-  color: var(--text-dark);
-  max-width: 600px;
-}
-
-/* Footer section */
-.guide-footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
 }
 
 section {
-  opacity: 1; /* Force visible */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+section.visible {
+  opacity: 1;
   transform: none;
+}
+
+@media (max-width: 768px) {
+  .guides-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filter-btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
+/* disable reveal animation on guides pages */
+section {
+  opacity: 1 !important;
+  transform: none !important;
 }

@@ -76,4 +76,22 @@ window.addEventListener('load', function() {
     }
   });
 
+ // Smooth scroll for Plan Your Journey button
+const planBtn = document.getElementById('planBtn');
+if (planBtn) {
+  planBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    // Calculate how far to scroll:
+    const scrollTarget = hero.getBoundingClientRect().height * 1;
+
+    window.scrollTo({
+      top: scrollTarget,
+      behavior: 'smooth'
+    });
+  });
+} 
+
 });
