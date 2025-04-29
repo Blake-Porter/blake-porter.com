@@ -13,8 +13,12 @@
   <header class="site-header">
   <div class="header-inner container">
     <a href="/index.html" class="logo">Blake Porter</a>
-
-    <nav class="nav-container">
+    <nav>
+      <button class="burger js-menu-toggle" aria-label="Toggle menu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/guides/">Guides</a></li>
@@ -23,25 +27,18 @@
         <li><a href="/about.html">About</a></li>
       </ul>
     </nav>
+  </div>
 
-    <!-- Mobile menu (details-based) -->
-    <details class="mobile-menu-wrapper">
-      <summary class="burger" aria-label="Toggle menu">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </summary>
-      <nav class="mobile-menu">
-        <ul class="mobile-nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/inspiration.html">Inspiration</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-      </nav>
-    </details>
-  </div> <!-- /.header-inner -->
+  <!-- Mobile Slide-Out Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/inspiration.html">Inspiration</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/about.html">About</a></li>
+    </ul>
+  </div>
 </header>
   <main class="site-main container">
     <h2>Day 1: Temples &amp; Gardens</h2>

@@ -15,7 +15,7 @@ if (path && path !== '' && path !== 'index.html') {
   document.body.classList.add('subpage');
 }
 
- // Wait for the full page to load completely
+// Wait for the full page to load completely
 window.addEventListener('load', function() {
 
   // Mobile Menu Toggle
@@ -23,20 +23,18 @@ window.addEventListener('load', function() {
   const mobileMenu = document.getElementById('mobileMenu');
 
   if (burger && mobileMenu) {
-    // open / close on burger click
-    burger.addEventListener('click', () => {
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
       burger.classList.toggle('active');
       mobileMenu.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
     });
 
-    // close panel when clicking outside
     document.addEventListener('click', (e) => {
-      if (
-        !mobileMenu.contains(e.target) &&
-        !burger.contains(e.target)
-      ) {
+      if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
         burger.classList.remove('active');
         mobileMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
     });
   }
