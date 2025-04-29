@@ -15,5 +15,9 @@
     {{ content | safe }}
   </main>
   {% include "partials/footer.html" %}
+  <script src="/resources/js/main.js"></script>
+  {% if page.url == '/guides/' %}
+    <script src="/resources/js/guides.js"></script>
+  {% endif %}
 </body>
 </html>

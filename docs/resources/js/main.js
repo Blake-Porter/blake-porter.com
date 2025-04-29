@@ -51,16 +51,13 @@ window.addEventListener('load', function() {
 
   // Fade-in sections on scroll
   const sections = document.querySelectorAll('section');
-
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
     });
-  }, {
-    threshold: 0.15
-  });
+  }, { threshold: 0.15 });
 
   sections.forEach(section => {
     observer.observe(section);
@@ -76,22 +73,19 @@ window.addEventListener('load', function() {
     }
   });
 
- // Smooth scroll for Plan Your Journey button
-const planBtn = document.getElementById('planBtn');
-if (planBtn) {
-  planBtn.addEventListener('click', e => {
-    e.preventDefault();
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-
-    // Calculate how far to scroll:
-    const scrollTarget = hero.getBoundingClientRect().height * 1;
-
-    window.scrollTo({
-      top: scrollTarget,
-      behavior: 'smooth'
+  // Smooth scroll for Plan Your Journey button
+  const planBtn = document.getElementById('planBtn');
+  if (planBtn) {
+    planBtn.addEventListener('click', e => {
+      e.preventDefault();
+      const hero = document.querySelector('.hero');
+      if (!hero) return;
+      const scrollTarget = hero.getBoundingClientRect().height * 1;
+      window.scrollTo({
+        top: scrollTarget,
+        behavior: 'smooth'
+      });
     });
-  });
-} 
+  }
 
 });
