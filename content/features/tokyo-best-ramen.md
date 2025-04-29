@@ -8,7 +8,7 @@ date: 2025-04-26
 author: "Blake Porter"
 region: "japan"
 city: "tokyo"
-category: "features"
+category: "explore"
 tags:
   - ramen
   - tokyo
