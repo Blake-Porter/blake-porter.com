@@ -87,10 +87,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Inner Flex Container                                                   */
 /*──────────────────────────────────────────────────────────────────────────*/
 .header-inner {
-  position: relative;       /* for absolute children */
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 0 1.5rem;        /* gutter on both sides */
+  justify-content: space-between;
+  padding: 0 1.5rem;
   width: 100%;
 }
 
@@ -99,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
 /*──────────────────────────────────────────────────────────────────────────*/
 .logo {
   order: 1;
-  margin-right: auto;       /* keeps it flush left */
+  margin-right: auto;
   font-weight: 700;
   font-size: 1.5rem;
   padding: 0.3rem 0.8rem;
@@ -119,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 /*──────────────────────────────────────────────────────────────────────────*/
 .header-inner nav {
   order: 2;
-  position: absolute;       /* taken out of flow for perfect centering */
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -156,53 +157,82 @@ h1, h2, h3, h4, h5, h6 {
 /*──────────────────────────────────────────────────────────────────────────*/
 /* Mobile “Burger” Toggle                                                 */
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Enhanced burger button styling */
 .header-inner .burger {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
   height: 24px;
-  background: rgba(0, 0, 0, 0.05); /* Very subtle background */
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 4px;
   cursor: pointer;
-  position: relative;
   z-index: 150;
 }
 
-/* Make the lines more visible */
-.burger .line {
-  width: 100%;
-  height: 3px;
-  background: #333; /* Explicitly dark color instead of variable */
-  border-radius: 2px;
-  transition: all 0.3s;
-  /* Add a subtle shadow to increase visibility */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+@media (min-width: 769px) {
+  .header-inner .burger {
+    display: none;
+  }
 }
 
-/* White lines for homepage */
-.special-homepage-header .burger .line {
-  background: white;
-  /* Add shadow for white lines to stand out against dark backgrounds */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+@media (max-width: 768px) {
+  /* hide desktop nav links */
+  .header-inner .nav-links {
+    display: none;
+  }
+
+  /* show burger on mobile */
+  .header-inner .burger {
+    width: auto;
+    height: auto;
+    padding: 0.3rem 0.8rem;
+    display: flex;
+    margin-left: auto;
+    margin-right: 3rem;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  /* undo the desktop centering of nav so it flows normally */
+  .header-inner nav {
+    position: static;
+    transform: none;
+  }
+
+  /* style the bars */
+  .header-inner .burger .line {
+    display: block;
+    width: 24px;
+    height: 3px;
+    margin: 0.2rem 0;
+    background: var(--text-dark);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /* white bars on dark homepage header */
+  .special-homepage-header .burger .line {
+    background: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
 }
 
-.burger.active .line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Burger “X” & slide-out menu (JS-driven)                                */
+/*──────────────────────────────────────────────────────────────────────────*/
+.header-inner .burger.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
 }
-.burger.active .line:nth-child(2) {
+.header-inner .burger.active .line:nth-child(2) {
   opacity: 0;
 }
-.burger.active .line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.header-inner .burger.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px,-5px);
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* Mobile Slide-Out Menu                                                   */
-/*──────────────────────────────────────────────────────────────────────────*/
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -210,80 +240,18 @@ h1, h2, h3, h4, h5, h6 {
   width: 70vw;
   height: 100%;
   background: white;
-  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
   padding: 4rem 2rem;
   overflow-y: auto;
   transition: right 0.3s ease;
   z-index: 200;
-  box-sizing: border-box;
 }
-
 .mobile-menu.active {
   right: 0;
 }
 
-.mobile-nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.mobile-nav-links li {
-  margin-bottom: 1.5rem;
-}
-
-.mobile-nav-links li a {
-  display: block;
-  font-size: 1.4rem;
-  color: var(--text-dark);
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 0.5rem;
-  transition: color 0.3s;
-}
-
-.mobile-nav-links li a:hover {
-  color: var(--primary-green);
-}
-
-/* Mobile Burger & Responsive Override                                     */
 /*──────────────────────────────────────────────────────────────────────────*/
-@media (max-width: 768px) {
-  /* Hide desktop links */
-  .header-inner .nav-links {
-    display: none !important;
-  }
-
-  /* Show burger button */
-  .header-inner .burger {
-    display: flex !important;
-    z-index: 150;                    /* sit above everything */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 24px;
-    background: none;
-    border: none;
-    margin-left: auto;
-    cursor: pointer;
-  }
-
-  /* Style the three bars */
-  .header-inner .burger .line {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: var(--text-dark) !important;
-    border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-
-  /* White bars on homepage (dark background) */
-  .special-homepage-header .burger .line {
-    background: white !important;
-  }
-}
-
-/* Homepage Hero Section */
+/* Homepage Hero Section                                                   */
+/*──────────────────────────────────────────────────────────────────────────*/
 .hero {
   background-image: url('/resources/images/ninbinh_temple_above.jpg');
   background-size: cover;
@@ -331,7 +299,9 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--secondary-accent);
 }
 
-/* Guide & Gallery Grid */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Guide & Gallery Grid                                                    */
+/*──────────────────────────────────────────────────────────────────────────*/
 .guide-grid, .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -348,7 +318,9 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
-/* Footer */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Footer                                                                  */
+/*──────────────────────────────────────────────────────────────────────────*/
 .site-footer {
   background: white;
   padding: 2rem 1rem;
@@ -371,7 +343,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-green);
 }
 
-/* Buttons */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Buttons                                                                 */
+/*──────────────────────────────────────────────────────────────────────────*/
 button, .btn {
   display: inline-block;
   background-color: var(--primary-green);
@@ -392,7 +366,9 @@ button:hover, .btn:hover {
   transform: scale(1.03);
 }
 
-/* Misc */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Misc                                                                    */
+/*──────────────────────────────────────────────────────────────────────────*/
 .featured-guides {
   margin-top: 4rem;
 }
@@ -431,131 +407,11 @@ section.visible {
   transform: none;
 }
 
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Scrolled header                                                          */
+/*──────────────────────────────────────────────────────────────────────────*/
 header.scrolled {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: background 0.3s, box-shadow 0.3s;
-}
-
-
-/* ─── Details-based Mobile Nav ─────────────────────────────────────────── */
-@media (max-width: 768px) {
-  /* hide desktop links */
-  .nav-links {
-    display: none;
-  }
-  /* show & position the burger (summary) */
-  .mobile-menu-wrapper summary.burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    z-index: 1000;
-  }
-}
-
-/* ─── MOBILE NAV (details-based) ───────────────────────────────────────── */
-
-/* 1) Desktop: show nav-links, hide burger toggle */
-.nav-links {
-  display: flex;
-}
-.mobile-menu-wrapper summary.burger {
-  display: none;
-}
-
-/* 2) Mobile (≤768px): hide nav-links, show & position burger */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .mobile-menu-wrapper summary.burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    z-index: 1000;
-  }
-}
-
-/* 3) Remove the default triangle in <summary> */
-.mobile-menu-wrapper summary::-webkit-details-marker {
-  display: none;
-}
-
-/* 4) Style the three bars */
-.mobile-menu-wrapper .line {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: var(--text-dark);
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-/* 5) Morph into “X” when open */
-.mobile-menu-wrapper[open] .line:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
-}
-.mobile-menu-wrapper[open] .line:nth-child(2) {
-  opacity: 0;
-}
-.mobile-menu-wrapper[open] .line:nth-child(3) {
-  transform: rotate(-45deg) translate(4px, -4px);
-}
-
-/* 6) Slide-out panel off-screen by default */
-.mobile-menu-wrapper .mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  transform: translateX(100%);
-  width: 70vw;
-  height: 100%;
-  background: white;
-  padding: 4rem 2rem;
-  overflow-y: auto;
-  transition: transform 0.3s ease;
-  z-index: 999;
-}
-
-/* 7) Slide it in when open */
-.mobile-menu-wrapper[open] .mobile-menu {
-  transform: translateX(0);
-}
-
-/* 8) Style the mobile links */
-.mobile-nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.mobile-nav-links li + li {
-  margin-top: 1.5rem;
-}
-.mobile-nav-links a {
-  display: block;
-  font-size: 1.2rem;
-  color: var(--text-dark);
-  text-decoration: none;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--border-light);
-  transition: color 0.3s;
-}
-.mobile-nav-links a:hover {
-  color: var(--primary-green);
 }
