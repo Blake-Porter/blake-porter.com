@@ -1,23 +1,64 @@
 {% extends "layout.njk" %}
-{% block content %}
 
-<article class="guide-post container">
-  <header class="guide-header">
-    <h1 class="guide-title">{{ title }}</h1>
-    <p class="guide-meta">{{ date }} • {{ readTime }} • {{ region | capitalize }}</p>
+{% block head %}
+  {% if canonicalURL %}
+    <link rel="canonical" href="{{ canonicalURL }}">
+  {% endif %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ title }}",
+    "description": "{{ description or excerpt }}",
+    "image": ["{{ socialImage or bannerImage }}"],
+    "datePublished": "{{ date }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ author }}"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ canonicalURL or ('https://blake-porter.com' ~ page.url) }}"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block content %}
+<article class="guide-post container mx-auto px-4 py-8">
+  <header class="guide-header mb-6">
+    <h1 class="guide-title text-3xl font-bold mb-2">{{ title }}</h1>
+    <p class="guide-meta text-gray-600 text-sm">
+      <time datetime="{{ date }}">{{ date }}</time>
+      • {{ readTime }}
+      • <a href="/guides/" class="underline hover:text-green-700">{{ category | capitalize }}</a>
+      {% if region %}• {{ region | capitalize }}{% endif %}
+    </p>
+    {% if excerpt %}
+      <p class="guide-excerpt text-lg mt-4">{{ excerpt }}</p>
+    {% endif %}
   </header>
 
   {% if bannerImage %}
-  <figure class="guide-banner">
-    <img src="{{ bannerImage }}" alt="{{ bannerAlt or title }}" class="responsive-img">
+  <figure class="guide-banner mb-8">
+    <img src="{{ bannerImage }}" alt="{{ bannerAlt or title }}" class="w-full rounded-lg shadow-md">
   </figure>
   {% endif %}
 
-  <div class="guide-content">{{ content | safe }}</div>
+  <div class="guide-content prose max-w-none mb-10">
+    {{ content | safe }}
+  </div>
 
-  <footer class="guide-footer">
-    <p>Enjoyed this guide? <a href="/contact/">Get in touch</a> for more!</p>
+  <footer class="guide-footer border-t pt-6 text-sm text-gray-700">
+    {% if tags %}
+      <p class="mb-4">
+        <strong>Tags:</strong>
+        {% for tag in tags %}
+          <a href="/tags/{{ tag }}/" class="tag inline-block px-2 py-1 mr-2 mb-2 bg-gray-100 rounded hover:bg-gray-200">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
+    <p>Enjoyed this guide? <a href="/contact/" class="text-green-700 underline">Get in touch</a> for more!</p>
   </footer>
 </article>
-
 {% endblock %}

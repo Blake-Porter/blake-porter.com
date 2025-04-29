@@ -91,3 +91,55 @@ section {
   opacity: 1 !important;
   transform: none !important;
 }
+
+/* guide-post layout */
+.guide-post {
+  max-width: 800px;
+}
+
+.guide-title {
+  line-height: 1.2;
+}
+
+.guide-meta a {
+  color: var(--primary-green);
+  text-decoration: none;
+}
+
+.guide-meta a:hover {
+  text-decoration: underline;
+}
+
+.guide-excerpt {
+  color: var(--text-dark);
+}
+
+/* Markdown content styling (if you’re using .prose or similar) */
+.guide-content h2,
+.guide-content h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.guide-content p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.guide-content img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Tags */
+.tag {
+  font-size: 0.875rem;
+  background-color: var(--border-light);
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.tag:hover {
+  background-color: var(--primary-green);
+  color: #fff;
+}

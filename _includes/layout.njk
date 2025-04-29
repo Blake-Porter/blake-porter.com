@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }} | Blake Porter</title>
-  <meta name="description" content="{{ description or 'Travel guides and insights by Blake Porter' }}">
+  <meta name="description" content="{{ description or excerpt }}">
+
+  {# canonical link #}
+  <link rel="canonical"
+        href="{{ canonicalURL or ('https://blake-porter.com' ~ page.url) }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:title"       content="{{ title }}" />
+  <meta property="og:description" content="{{ description or excerpt }}" />
+  <meta property="og:url"
+        content="{{ canonicalURL or ('https://blake-porter.com' ~ page.url) }}" />
+  <meta property="og:image"       content="{{ socialImage or bannerImage }}" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description or excerpt }}" />
+  <meta name="twitter:image"       content="{{ socialImage or bannerImage }}" />
+
   <link rel="stylesheet" href="/resources/css/style.css" />
   <link rel="stylesheet" href="/resources/css/guides.css" />
-  <link rel="icon" href="/favicon.ico" />
+  {% block head %}{% endblock %}
 </head>
-<body class="site-body {% if page.url != '/' %}subpage{% endif %}">
+
+<body class="site-body">
   {% include "partials/header.html" %}
+
   <main class="site-main container">
-    {{ content | safe }}
+    {% block content %}{{ content | safe }}{% endblock %}
   </main>
+
   {% include "partials/footer.html" %}
-  <script src="/resources/js/main.js"></script>
-  {% if page.url == '/guides/' %}
-    <script src="/resources/js/guides.js"></script>
-  {% endif %}
 </body>
 </html>
