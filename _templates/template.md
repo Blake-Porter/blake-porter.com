@@ -1,65 +1,50 @@
 ---
-layout: guide.njk
-title: "TITLE HERE"
-slug: "your-page-slug"                   # URL-friendly identifier
-description: "One- or two-sentence summary for previews."
-excerpt: "A short teaser text for lists or social shares."
-date: YYYY-MM-DD
-author: "Blake Porter"
-region: "REGION HERE"                    # e.g. "japan", "usa"
-city: "CITY OR AREA HERE"                # e.g. "tokyo", "seattle"
-category: "itineraries"                  # OR "explore", "tips-gear"
-tags:
-  - tag1                                 # Keywords for filtering and navigation
-  - tag2
-readTime: "X min read"
-bannerImage: "/resources/images/guides/{{ category }}/{{ slug }}/banner.jpg"
-bannerAlt: "Short alt text for the banner image"
-estimatedCostYen: 0                      # Input total cost in JPY
-season: "spring"                         # OR "summer", "autumn", "winter", "all-year"
-canonicalURL: "https://blake-porter.com/guides/{{ slug }}.html"
-# Uncomment if you need a flat-file URL:
-# permalink: "/guides/{{ slug }}.html"
+layout: guide.njk               # Layout to use (do not change)
+slug: "<city>-<your-slug>"      # URL slug: lowercase, hyphens, city prefix
+title: "<Your Title Here>"      # Page title, ≤60 characters, starts with city
+date: YYYY-MM-DD                # Publish date (e.g. 2025-05-10)
+author: "Blake Porter"          # Author name
+
+description: "<SEO description>" # Meta description (155–160 chars)
+keywords: "<comma-separated keywords>" # SEO keywords
+category: "<explore|itineraries|...>" # Site category
+
+tags:                          # Tags array
+  - <tag1>
+  - <tag2>
+
+bannerImage: "/path/to/banner.jpg"  # Banner image URL
+bannerAlt: "<Alt text for banner>"  # Banner alt text
+
+region: "<Region>"              # Broad region (e.g., Asia)
+country: "<Country>"             # Country name
+subregion: "<Subregion>"         # State/province/area
+city: "<City>"                  # City name
+area: "<Area>"                  # Neighborhood or district (optional)
+
+excerpt: "<Short excerpt>"       # Teaser text (<160 chars)
+readTime: "<# min read>"         # Estimated read time
+author: "<Author>"
+canonicalURL: "<Full canonical URL>" # e.g. https://blake-porter.com/guides/slug.html
+socialImage: "/path/to/social.jpg"  # Open Graph image URL
+socialImageAlt: "<OG image alt>" # Alt text for social image
+updated: YYYY-MM-DD              # Last updated date
+mapLink: "<Google Maps link>"    # Link to Google Maps (optional)
+mapEmbed: "<iframe embed URL>"   # Maps embed code (optional)
+robots: "index,follow"          # SEO robots directive
 ---
 
-## 🛤 Introduction
+## Body Content
 
-Write 2–3 sentences that introduce the topic, location, or context for the reader.
+### Introduction
+<Write 2–3 sentence hook here>
 
----
+### Section 1 Heading
+- **Key Point 1**: Description
+- **Key Point 2**: Description
 
-## 📍 Quick Facts
+### Section 2 Heading
+<More paragraphs or lists>
 
-- **Region:** REGION  
-- **City:** CITY  
-- **Best Season:** SEASON  
-- **Estimated Cost:** ¥{{ estimatedCostYen }} JPY (~${{ (estimatedCostYen * exchangeRate) | number }} USD)
-
----
-
-## 🧭 Main Content
-
-> Structure this section depending on the type:
-
-**Itineraries**  
-- Day 1 – Activity/Location  
-- Day 2 – Activity/Location  
-- Day 3 – Activity/Location  
-
-**Explore**  
-- Topic 1 (e.g., Best ramen shops)  
-- Topic 2 (e.g., Museum highlights)  
-- Topic 3 (e.g., Hidden hikes)  
-
-**Tips & Gear**  
-- Tip 1 (e.g., Booking hacks)  
-- Gear 1 (e.g., Best daypack brands)  
-
----
-
-## 📷 Gallery (Optional)
-
-Add image callouts if needed:
-
-```markdown
-![Alt text](/resources/images/guides/{{ category }}/{{ slug }}/image1.jpg)
+### Conclusion & Tips
+<Wrap up with final tips and CTA>
