@@ -1,15 +1,21 @@
+const _ = require("lodash");
+const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
-  // 1. Copy static assets
+  // 1. URL-encode filter for all templates
+  eleventyConfig.addFilter("url_encode", str => encodeURIComponent(str || ""));
+  eleventyConfig.addNunjucksFilter("url_encode", eleventyConfig.getFilter("url_encode"));
+
+  // 2. Copy static assets
   eleventyConfig.addPassthroughCopy("resources");
 
-  // 2. Copy root pages
+  // 3. Copy root HTML pages
   ["index.html", "about.html", "inspiration.html", "services.html"].forEach(page => {
     eleventyConfig.addPassthroughCopy(page);
   });
 
-  // 3. Responsive image shortcode for all template types
+  // 4. Responsive image shortcode
   eleventyConfig.addAsyncShortcode("responsiveImage", async (src, alt, sizes = "100vw") => {
     let metadata = await Image(src, {
       widths: [400, 800, 1200, 1600],
@@ -17,20 +23,21 @@ module.exports = function(eleventyConfig) {
       outputDir: "./docs/images/",
       urlPath: "/images/"
     });
-    let imageAttrs = { alt, sizes, loading: "lazy", decoding: "async" };
-    return Image.generateHTML(metadata, imageAttrs);
+    let attrs = { alt, sizes, loading: "lazy", decoding: "async" };
+    return Image.generateHTML(metadata, attrs);
   });
 
-  // 4. Build a "guides" collection from Markdown
-  eleventyConfig.addCollection("guides", c =>
-    c.getFilteredByGlob("content/**/*.md")
+  // 5. Guides collection
+  eleventyConfig.addCollection("guides", collection =>
+    collection.getFilteredByGlob("content/**/*.md")
   );
 
-  // 5. Directory configuration
+  // 6. Directory configuration
   return {
     dir: {
       input: ".",
       includes: "_includes",
+      data: "_data",
       output: "docs"
     }
   };

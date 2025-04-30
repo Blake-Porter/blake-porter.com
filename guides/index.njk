@@ -1,29 +1,68 @@
----
-title: "Travel Guides"
-description: "Curated travel guides by Blake Porter"
-layout: layout.njk
-permalink: "/guides/"
----
+{% extends "layout.njk" %}
 
-<section class="guides-controls container">
-  <button class="filter-btn active"    data-filter="all"         aria-pressed="true">All</button>
-  <button class="filter-btn"           data-filter="itineraries" aria-pressed="false">Itineraries</button>
-  <button class="filter-btn"           data-filter="explore"     aria-pressed="false">Explore</button>
-  <button class="filter-btn"           data-filter="tips-gear"   aria-pressed="false">Tips & Gear</button>
-</section>
+{% block head %}
+  <title>Guides | Blake Porter</title>
+  <meta name="description" content="Browse all travel guides by region, country, subregion, and city.">
+{% endblock %}
 
-<section class="guide-grid container">
-  {% for guide in collections.guides %}
-  <article class="guide-card" data-category="{{ guide.data.category }}">
-    <a href="{{ guide.url }}">
-      <img src="{{ guide.data.bannerImage }}" alt="{{ guide.data.bannerAlt or guide.data.title }}" class="guide-thumbnail">
-      <div class="guide-summary">
-        <h3>{{ guide.data.title }}</h3>
-        <p>{{ guide.data.description }}</p>
-        <p class="guide-meta">{{ guide.data.readTime }} • {{ guide.data.region | capitalize }}</p>
+{% block content %}
+  <div class="guides-page container">
+    <h1>Guides</h1>
+    <div class="guides-layout">
+
+      <!-- Filters Section -->
+      <aside class="filters">
+        <h2>Filter Guides</h2>
+        {% for region, countries in guidesByRegion %}
+          <div class="filter-group">
+            <h3>{{ region }}</h3>
+            {% if region == query.region %}
+              {% for country, subs in countries %}
+                <div class="subfilter-group">
+                  <strong>{{ country }}</strong>
+                  {% if country == query.country %}
+                    <ul>
+                      {% for sub, cities in subs %}
+                        <li>
+                          <a href="/guides/?region={{ region | url_encode }}&country={{ country | url_encode }}&subregion={{ sub | url_encode }}" class="filter-btn">{{ sub }}</a>
+                          {% if sub == query.subregion %}
+                            <ul>
+                              {% for city in cities %}
+                                <li>
+                                  <a href="/guides/?region={{ region | url_encode }}&country={{ country | url_encode }}&subregion={{ sub | url_encode }}&city={{ city | url_encode }}" class="filter-btn">{{ city }}</a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          {% endif %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            {% else %}
+              <a href="/guides/?region={{ region | url_encode }}" class="filter-btn">View {{ region }}</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </aside>
+
+      <!-- Guides List Section -->
+      <div class="guides-list">
+        {% if collections.guides | length %}
+          {% for guide in collections.guides %}
+            <article class="guide-card">
+              <a href="/{{ guide.data.slug }}/">
+                <h2>{{ guide.data.title }}</h2>
+                <p>{{ guide.data.excerpt }}</p>
+              </a>
+            </article>
+          {% endfor %}
+        {% else %}
+          <p>No guides match this filter.</p>
+        {% endif %}
       </div>
-    </a>
-  </article>
-  {% endfor %}
-</section>
-<script src="/resources/js/guides.js"></script>
+
+    </div>
+  </div>
+{% endblock %}

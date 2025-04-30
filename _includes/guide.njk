@@ -22,9 +22,9 @@
       <p class="author-date">By {{ author }} on {{ date }}</p>
       {% if updated %}<p class="updated-date">Updated {{ updated }}</p>{% endif %}
       {% if bannerImage %}
-      <figure class="banner">
-        {% responsiveImage bannerImage, bannerAlt, "100vw" %}
-      </figure>
+        <figure class="banner">
+          {% responsiveImage bannerImage, bannerAlt, "100vw" %}
+        </figure>
       {% endif %}
     </header>
 
@@ -37,7 +37,12 @@
         {% if city %}<li><strong>City:</strong> {{ city }}</li>{% endif %}
         {% if area %}<li><strong>Area:</strong> {{ area }}</li>{% endif %}
         {% if estimatedCostYen %}<li><strong>Estimated Cost:</strong> ¥{{ estimatedCostYen }} JPY</li>{% endif %}
-        {% if mapLink %}<li><strong>Map:</strong> <a href="{{ mapLink }}" target="_blank">View on Google Maps</a></li>{% endif %}
+        {% if mapLink %}
+          <li>
+            <strong>Map:</strong>
+            <a href="{{ mapLink }}" target="_blank">View on Google Maps</a>
+          </li>
+        {% endif %}
       </ul>
     </section>
 
@@ -46,29 +51,10 @@
     </section>
 
     {% if mapEmbed %}
-    <section class="map-embed">
-      <h2>Location Map</h2>
-      <iframe src="{{ mapEmbed }}" width="100%" height="450" loading="lazy"></iframe>
-    </section>
+      <section class="map-embed">
+        <h2>Location Map</h2>
+        <iframe src="{{ mapEmbed }}" width="100%" height="450" loading="lazy"></iframe>
+      </section>
     {% endif %}
-
   </article>
-{% endblock %}
-
-{% block filters %}
-  <aside class="filters">
-    <h2>Filter Guides</h2>
-    {% set hierarchy = ["region","country","subregion","city","area"] %}
-    {% for level in hierarchy %}
-      {% set values = collections.guides | map(attribute="data." ~ level) | unique | reject("equalto","") %}
-      {% if values | length %}
-      <div class="filter-group">
-        <label>{{ level | capitalize }}</label>
-        {% for v in values %}
-          <a href="/guides/?{{ level }}={{ v }}" class="filter-btn">{{ v }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
-    {% endfor %}
-  </aside>
 {% endblock %}
