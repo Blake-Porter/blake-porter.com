@@ -7,6 +7,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("url_encode", str => encodeURIComponent(str || ""));
   eleventyConfig.addNunjucksFilter("url_encode", eleventyConfig.getFilter("url_encode"));
 
+  // 1.5 Allow Object.keys in Nunjucks
+  eleventyConfig.addFilter("keys", obj => {
+    if(!obj || typeof obj !== "object") return [];
+    return Object.keys(obj);
+  });
+
+
   // 2. Copy static assets
   eleventyConfig.addPassthroughCopy("resources");
 

@@ -7,41 +7,47 @@
 
 .guides-controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   margin: 2rem 0;
 }
 
+/* 2) Filter buttons */
 .filter-btn {
+  display: inline-block;
   padding: 0.5rem 1rem;
   border: 1px solid var(--border-light);
-  background: none;
+  background: transparent;
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  transition: background-color 0.2s, color 0.2s;
 }
-
+.filter-btn:hover {
+  background-color: var(--border-light);
+}
 .filter-btn.active {
-  background: var(--primary-green);
-  color: white;
+  background-color: var(--primary-green);
+  color: #fff;
 }
 
-.guide-grid {
+/* 3) Guide cards grid */
+.guides-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
-
 .guide-card {
-  background: white;
   border: 1px solid var(--border-light);
+  padding: 1rem;
   border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  transition: box-shadow 0.2s;
 }
-
 .guide-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .guide-thumbnail {

@@ -15,10 +15,10 @@ tags:
 bannerImage: "/resources/images/guides/explore/tokyo-nightlife-guide-best-neighborhoods/banner.jpg"
 bannerAlt: "Neon-lit street in Shibuya at night"
 
-region: "Asia"
-country: "Japan"
-subregion: "Kanto"
-city: "Tokyo"
+region: "North America"
+country: "USA"
+subregion: "California"
+city: "Los Angeles"
 area: ""
 
 excerpt: "Discover where to party in Tokyo—from neon alleys in Shibuya to upscale clubs in Roppongi."
