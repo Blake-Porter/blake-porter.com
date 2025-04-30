@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blake Porter | Travel Blog</title>
-    <meta name="description" content="Welcome to Blake Porter's personal travel blog, sharing adventures and inspiration from around the world.">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/resources/css/style.css">
-  </head>
-<body class="homepage">
-  <header class="site-header special-homepage-header">
-    <div class="header-inner container">
-      <a href="/index.html" class="logo">Blake Porter</a>
-      <nav>
-        <button class="burger js-menu-toggle" aria-label="Toggle menu">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/inspiration.html">Inspiration</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Blake Porter</title>
+  <meta name="description" content="Welcome to Blake Porter’s travel site">
+
+  <link rel="canonical"
+        href="https://blake-porter.com/" />
+
+  <!-- Open Graph + Twitter Card omitted for brevity -->
+
+  <!-- CORE STYLES -->
+  <link rel="stylesheet" href="/resources/css/style.css">
+
+  <!-- PER-PAGE STYLES (via front-matter `css` array) -->
   
-    <!-- Mobile Slide-Out Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <ul class="mobile-nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/inspiration.html">Inspiration</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/about.html">About</a></li>
-      </ul>
-    </div>
-  </header>
+    
+      <link rel="stylesheet" href="/resources/css/index.css">
+    
   
 
+  
+</head>
+
+<body class="homepage">
+  <header class="site-header special-homepage-header">
+  <div class="header-inner container">
+    <a href="/" class="logo">Blake Porter</a>
+    <nav>
+      <button class="burger js-menu-toggle" aria-label="Toggle menu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/inspiration/">Inspiration</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Mobile Slide-Out Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/inspiration.html">Inspiration</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+  
+    
+      
 <!-- Hero Section -->
 <section class="hero">
   <a href="#" id="planBtn" class="btn hero-btn">Plan Your Journey</a>
@@ -93,5 +111,19 @@
 </footer>
 
 <script src="/resources/js/main.js"></script>
+
+    
+  
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Blake Porter. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+    </div>
+  </footer>
+  <script src="/resources/js/main.js" defer></script>
+  <script src="/resources/js/guides.js" defer></script>
 </body>
 </html>

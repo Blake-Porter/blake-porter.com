@@ -1,65 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inspiration | Blake Porter</title>
-  <meta name="description" content="Photo galleries and story-driven inspiration">
+---
+layout: layout.njk
+title: "Inspiration"
+description: "Photo galleries and story-driven inspiration"
+bodyClass: "inspiration-page"
+headerVariant: ""
+css:
+  - inspiration
+---
 
-  <link rel="canonical"
-        href="https://blake-porter.com/inspiration/" />
-
-  <!-- Open Graph + Twitter Card omitted for brevity -->
-
-  <!-- CORE STYLES -->
-  <link rel="stylesheet" href="/resources/css/style.css">
-
-  <!-- PER-PAGE STYLES (via front-matter `css` array) -->
-  
-    
-      <link rel="stylesheet" href="/resources/css/inspiration.css">
-    
-  
-
-  
-</head>
-
-<body class="inspiration-page">
-  <header class="site-header">
-  <div class="header-inner container">
-    <a href="/" class="logo">Blake Porter</a>
-    <nav>
-      <button class="burger js-menu-toggle" aria-label="Toggle menu">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/inspiration/">Inspiration</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/about/">About</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <!-- Mobile Slide-Out Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul class="mobile-nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/guides/">Guides</a></li>
-      <li><a href="/inspiration.html">Inspiration</a></li>
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/about.html">About</a></li>
-    </ul>
-  </div>
-</header>
-
-  
-    
-      
-
+{% block content %}
   <!-- Hero Section (full-width) -->
   <section class="hero" id="hero">
     <img
@@ -107,20 +56,4 @@
       </ul>
     </section>
   </main>
-
-
-    
-  
-
-  <footer class="site-footer">
-    <p>&copy; 2025 Blake Porter. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-      <a href="#">Facebook</a>
-    </div>
-  </footer>
-  <script src="/resources/js/main.js" defer></script>
-  <script src="/resources/js/guides.js" defer></script>
-</body>
-</html>
+{% endblock %}

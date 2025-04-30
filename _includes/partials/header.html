@@ -1,6 +1,6 @@
-<header class="site-header {% if page.url == '/' %}special-homepage-header{% endif %}">
+<header class="site-header{% if headerVariant %} {{ headerVariant }}{% endif %}">
   <div class="header-inner container">
-    <a href="/index.html" class="logo">Blake Porter</a>
+    <a href="/" class="logo">Blake Porter</a>
     <nav>
       <button class="burger js-menu-toggle" aria-label="Toggle menu">
         <span class="line"></span>
@@ -10,9 +10,9 @@
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/guides/">Guides</a></li>
-        <li><a href="/inspiration.html">Inspiration</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/about.html">About</a></li>
+        <li><a href="/inspiration/">Inspiration</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/about/">About</a></li>
       </ul>
     </nav>
   </div>

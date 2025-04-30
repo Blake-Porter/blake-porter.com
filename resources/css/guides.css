@@ -5,15 +5,17 @@
   --text-light: #666666;
 }
 
+/* Filters */
 .guides-controls {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   margin: 2rem 0;
+  position: sticky;
+  top: 4rem;
+  align-self: start;
 }
-
-/* 2) Filter buttons */
 .filter-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -33,51 +35,74 @@
   color: #fff;
 }
 
-/* 3) Guide cards grid */
+/* Layout wrapper */
+.guides-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+
+/* Card grid */
 .guides-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
+
+/* Guide cards */
 .guide-card {
   border: 1px solid var(--border-light);
-  padding: 1rem;
-  border-radius: 8px;
-  background: #fff;
-  transition: box-shadow 0.2s;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .guide-card:hover {
+  transform: translateY(-4px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-.guide-thumbnail {
+.guide-card img {
   width: 100%;
   display: block;
 }
-
-.guide-summary {
+.guide-card .card-content {
   padding: 1rem;
+}
+
+/* Post layout */
+.guide-post {
+  max-width: 800px;
+}
+.guide-content h2,
+.guide-content h3 {
+  margin: 1.5em 0 0.5em;
+}
+.guide-content p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+.guide-content img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Tags */
+.tag {
+  font-size: 0.875rem;
+  background-color: var(--border-light);
   color: var(--text-dark);
+  text-decoration: none;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+}
+.tag:hover {
+  background-color: var(--primary-green);
+  color: #fff;
 }
 
-.guide-summary h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
-}
-
-.guide-summary p {
-  margin: 0 0 0.75rem;
-  color: var(--text-light);
-}
-
+/* Disable reveal animation on guides pages */
 section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-section.visible {
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 @media (max-width: 768px) {
@@ -90,62 +115,4 @@ section.visible {
     max-width: 300px;
     text-align: center;
   }
-}
-
-/* disable reveal animation on guides pages */
-section {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-/* guide-post layout */
-.guide-post {
-  max-width: 800px;
-}
-
-.guide-title {
-  line-height: 1.2;
-}
-
-.guide-meta a {
-  color: var(--primary-green);
-  text-decoration: none;
-}
-
-.guide-meta a:hover {
-  text-decoration: underline;
-}
-
-.guide-excerpt {
-  color: var(--text-dark);
-}
-
-/* Markdown content styling (if you’re using .prose or similar) */
-.guide-content h2,
-.guide-content h3 {
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-.guide-content p {
-  margin-bottom: 1em;
-  line-height: 1.6;
-}
-
-.guide-content img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-/* Tags */
-.tag {
-  font-size: 0.875rem;
-  background-color: var(--border-light);
-  color: var(--text-dark);
-  text-decoration: none;
-}
-
-.tag:hover {
-  background-color: var(--primary-green);
-  color: #fff;
 }

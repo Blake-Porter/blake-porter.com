@@ -236,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100vw;
+  right: -100%;
   width: 70vw;
   height: 100%;
   background: white;

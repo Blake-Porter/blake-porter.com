@@ -1,45 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blake Porter | Travel Blog</title>
-    <meta name="description" content="Welcome to Blake Porter's personal travel blog, sharing adventures and inspiration from around the world.">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/resources/css/style.css">
-  </head>
-<body class="homepage">
-  <header class="site-header special-homepage-header">
-    <div class="header-inner container">
-      <a href="/index.html" class="logo">Blake Porter</a>
-      <nav>
-        <button class="burger js-menu-toggle" aria-label="Toggle menu">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/inspiration.html">Inspiration</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-  
-    <!-- Mobile Slide-Out Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <ul class="mobile-nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/inspiration.html">Inspiration</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/about.html">About</a></li>
-      </ul>
-    </div>
-  </header>
-  
+---
+layout: layout.njk        # uses our updated layout
+title: "Home"
+description: "Welcome to Blake Porter’s travel site"
+bodyClass: "homepage"     # gives <body class="site-body homepage">
+headerVariant: "special-homepage-header"
+css:
+  - index                 # will load /resources/css/index.css if you have it
+---
 
 <!-- Hero Section -->
 <section class="hero">
@@ -93,5 +60,3 @@
 </footer>
 
 <script src="/resources/js/main.js"></script>
-</body>
-</html>

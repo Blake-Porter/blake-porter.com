@@ -1,0 +1,48 @@
+---
+layout: layout.njk
+title: "About Blake Porter"
+description: "Learn more about Blake Porter, a passionate traveler, writer, and photographer."
+bodyClass: "about-page"
+headerVariant: ""       # solid header
+css:
+  - about
+---
+
+{% block content %}
+
+  <!-- About Hero Section -->
+  <section class="about-hero">
+    <div class="hero-about">
+      <img
+        src="/resources/images/aboutme_crop.jpg"
+        alt="Portrait of Blake Porter"
+        class="hero-about-portrait"
+      />
+      <div class="hero-about-text">
+        <div class="hero-about-title">
+          <h1>About Me</h1>
+        </div>
+        <div class="hero-about-subtitle">
+          <p>Photographer • Travel Junkie • Storyteller</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="about-divider"></div>
+
+  <!-- About Text Section -->
+  <section class="about-content section">
+    <h2 class="section-title">Hi, I'm Blake.</h2>
+    <p>
+      After taking a spontaneous half-year trip to Japan and Korea, I uprooted my life in Los Angeles and made Tokyo my base.
+      From there, I've explored the hidden temples of Kyoto, bustling markets of Bangkok, and cobblestone streets of Europe.
+      My passion is planning flexible, cost-conscious itineraries that balance iconic sights with off-the-beaten-path experiences.
+      I use detailed spreadsheets not to box myself in, but to leave room for serendipity—so you can pivot at
+      a moment’s notice and discover unexpected adventures.
+      Through my photography and travel writing, I aim to inspire curiosity, empathy, and a deeper connection with the world.
+      Let’s explore together.
+    </p>
+  </section>
+
+{% endblock %}

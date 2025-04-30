@@ -1,4 +1,12 @@
-{% extends "layout.njk" %}
+---
+layout: layout.njk
+title: "Guides"
+description: "Browse all travel guides by region, country, subregion, and city."
+bodyClass: "guides-page"
+headerVariant: ""      # solid header
+css:
+  - guides
+---
 
 {% block head %}
   <title>Guides | Blake Porter</title>
@@ -6,49 +14,48 @@
 {% endblock %}
 
 {% block content %}
-  <div class="guides-page container">
+  <div class="guides-page">
     <h1>Guides</h1>
+
     <div class="guides-layout">
-
-      <!-- Filters Section -->
-      <aside class="filters guides-controls">
+      <!-- Filters Sidebar -->
+      <aside class="guides-controls">
         <h2>Filter Guides</h2>
-
-        {# Top-level: Regions #}
         {% for region in guidesByRegion | keys %}
           {% set countries = guidesByRegion[region] %}
           <div class="filter-group">
             <h3>{{ region }}</h3>
 
             {% if region == query.region %}
-              {# Second-level: Countries #}
               {% for country in countries | keys %}
                 {% set subs = countries[country] %}
                 <div class="subfilter-group">
                   <strong>{{ country }}</strong>
 
                   {% if country == query.country %}
-                    {# Third-level: Subregions #}
                     <ul>
                       {% for sub in subs | keys %}
                         {% set cities = subs[sub] %}
                         <li>
                           <a
                             href="/guides/?region={{ region | url_encode }}&country={{ country | url_encode }}&subregion={{ sub | url_encode }}"
-                            class="filter-btn"
+                            class="filter-btn{% if sub == query.subregion %} active{% endif %}"
                             data-filter="{{ sub | url_encode }}"
-                          >{{ sub }}</a>
+                          >
+                            {{ sub }}
+                          </a>
 
                           {% if sub == query.subregion %}
-                            {# Fourth-level: Cities #}
                             <ul>
                               {% for city in cities %}
                                 <li>
                                   <a
                                     href="/guides/?region={{ region | url_encode }}&country={{ country | url_encode }}&subregion={{ sub | url_encode }}&city={{ city | url_encode }}"
-                                    class="filter-btn"
+                                    class="filter-btn{% if city == query.city %} active{% endif %}"
                                     data-filter="{{ city | url_encode }}"
-                                  >{{ city }}</a>
+                                  >
+                                    {{ city }}
+                                  </a>
                                 </li>
                               {% endfor %}
                             </ul>
@@ -56,49 +63,52 @@
                         </li>
                       {% endfor %}
                     </ul>
-                  {% endif %}
+                  {% endif %}  {# ends country == query.country #}
+
                 </div>
               {% endfor %}
             {% else %}
-              {# Render region button when not selected #}
               <a
                 href="/guides/?region={{ region | url_encode }}"
-                class="filter-btn"
+                class="filter-btn{% if region == query.region %} active{% endif %}"
                 data-filter="{{ region | url_encode }}"
               >
                 {{ region }}
               </a>
-            {% endif %}
+            {% endif %}  {# ends region == query.region #}
 
           </div>
         {% endfor %}
-
       </aside>
 
-      <!-- Guides List Section -->
+      <!-- Guides Cards Grid -->
       <div class="guides-list">
         {% for guide in collections.guides %}
-          {# Only render if all taxonomy fields are present #}
           {% if guide.data.region and guide.data.country and guide.data.subregion and guide.data.city %}
             <article
               class="guide-card"
-              data-category="{{ guide.data.region | url_encode }}"
               data-region="{{ guide.data.region | url_encode }}"
               data-country="{{ guide.data.country | url_encode }}"
               data-subregion="{{ guide.data.subregion | url_encode }}"
               data-city="{{ guide.data.city | url_encode }}"
             >
               <a href="{{ guide.url }}">
-                <h3>{{ guide.data.title }}</h3>
-                {% if guide.data.excerpt %}<p>{{ guide.data.excerpt }}</p>{% endif %}
+                <img
+                  src="{{ guide.data.bannerImage }}"
+                  alt="{{ guide.data.bannerAlt }}"
+                  class="guide-thumbnail"
+                />
+                <div class="card-content">
+                  <h3>{{ guide.data.title }}</h3>
+                  {% if guide.data.excerpt %}
+                    <p>{{ guide.data.excerpt }}</p>
+                  {% endif %}
+                </div>
               </a>
             </article>
-          {% else %}
-            {# Skip guides missing taxonomy fields #}
           {% endif %}
         {% endfor %}
       </div>
-
     </div>
   </div>
 {% endblock %}
