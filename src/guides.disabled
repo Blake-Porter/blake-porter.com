@@ -1,0 +1,31 @@
+---
+title: "All Guides"
+layout: base.njk
+permalink: "/guides/"
+---
+
+<h1>All Guides</h1>
+
+<ul class="guide-list container">
+  {# Loop over the "guides" collection you defined in .eleventy.js #}
+  {% for guide in collections.guides %}
+    <li class="guide-item">
+      {# Each `guide` has: 
+            guide.inputPath (e.g. "src/content/explore/tokyo-best-ramen.md")
+            guide.url       (e.g. "/guides/explore/tokyo-best-ramen/")
+            guide.data.title (from front matter)
+            guide.data.date (front matter date)
+            guide.data.category (front matter category)
+            etc.
+      #}
+      <a href="{{ guide.url }}">
+        <h2>{{ guide.data.title }}</h2>
+      </a>
+      <p class="guide-meta">
+        <span>{{ guide.data.category | capitalize }}</span> |
+        <span>{{ guide.date | readableDate }}</span>
+      </p>
+      <p>{{ guide.data.description || guide.data.excerpt }}</p>
+    </li>
+  {% endfor %}
+</ul>

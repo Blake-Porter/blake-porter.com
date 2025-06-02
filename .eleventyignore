@@ -1,3 +1,5 @@
 _templates/
 _site/
 docs/_site/
+src/content-disabled/
+src/guides.disabled

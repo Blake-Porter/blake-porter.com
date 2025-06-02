@@ -5,25 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }} | Blake Porter</title>
   <meta name="description" content="{{ description or excerpt }}">
-
-  <link rel="canonical"
-        href="{{ canonicalURL or ('https://blake-porter.com' ~ page.url) }}" />
-
-  <!-- Open Graph + Twitter Card omitted for brevity -->
+  <link rel="canonical" href="{{ canonicalURL or ('https://blake-porter.com' ~ page.url) }}" />
 
   <!-- CORE STYLES -->
-  <link rel="stylesheet" href="/resources/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- PER-PAGE STYLES (via front-matter `css` array) -->
+  <!-- PER-PAGE STYLES -->
   {% if css %}
     {% for sheet in css %}
-      <link rel="stylesheet" href="/resources/css/{{ sheet }}.css">
+      <link rel="stylesheet" href="/assets/css/{{ sheet }}.css">
     {% endfor %}
   {% endif %}
 
   {% block head %}{% endblock %}
 </head>
-
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
   {% include "partials/header.html" %}
 
@@ -38,7 +33,7 @@
   {% endblock %}
 
   {% include "partials/footer.html" %}
-  <script src="/resources/js/main.js" defer></script>
-  <script src="/resources/js/guides.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/guides.js" defer></script>
 </body>
 </html>
