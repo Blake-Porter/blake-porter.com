@@ -18,27 +18,6 @@ if (path && path !== '' && path !== 'index.html') {
 // Wait for the full page to load completely
 window.addEventListener('load', function() {
 
-  // Mobile Menu Toggle
-  const burger = document.querySelector('.burger');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (burger && mobileMenu) {
-    burger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      burger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
-        burger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      }
-    });
-  }
-
   // Night-mode switcher (only for inspiration page)
   const switcher = document.querySelector('.js-night-mode-trigger');
   if (switcher) {
