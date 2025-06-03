@@ -1,34 +1,8 @@
-/* assets/css/style.css */
-
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 0. Global Reset + Box‐Sizing                                              */
-/*──────────────────────────────────────────────────────────────────────────*/
-/* Make every element include padding/border in its width/height */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* prevent any accidental horizontal scroll */
-  font-family: 'DM Sans', sans-serif;
-  background: var(--background-light);
-  color: var(--text-dark);
-  line-height: 1.7;
-}
-
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 1. Font                                                                     */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 1. Font & Variables                                                     */
+/* ──────────────────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 2. Root Variables                                                          */
-/*──────────────────────────────────────────────────────────────────────────*/
 :root {
   --primary-green: #355E3B;
   --secondary-accent: #4A7C59;
@@ -37,66 +11,92 @@ body {
   --text-dark: #1f1f1f;
   --text-light: #666666;
   --border-light: #dcdcdc;
-
-  --nav-height: 60px; /* header height */
-  --container-max: 1200px; /* maximum width for content containers */
+  --nav-height: 60px;
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 3. Utility: Centered Container                                             */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 2. Base Styles                                                          */
+/* ──────────────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-accent);
+  position: relative;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--primary-green);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
 .container {
   width: 90%;
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 4. Header – Transparent on Homepage, Solid Otherwise                        */
-/*──────────────────────────────────────────────────────────────────────────*/
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 3. HEADER (desktop + mobile)                                             */
+/* ──────────────────────────────────────────────────────────────────────── */
 .site-header {
-  position: absolute;             /* float over the hero by default */
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: var(--nav-height);
-  display: flex;
-  align-items: center;
-  padding: 0 1.5rem;
-  z-index: 100;                   /* above everything */
-  background: transparent;        /* transparent on homepage */
-  border-bottom: none;
-  transition: background 0.3s ease;
-}
-
-/* If the page passes a bodyClass (e.g. “homepage”), we keep .site-header transparent.
-   On any other page you can add a class like “subpage” (see layout.njk below) and override: */
-body:not(.homepage) .site-header {
-  position: relative;             /* push header into the normal flow */
   background: white;
   border-bottom: 1px solid var(--border-light);
+  z-index: 100;
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 5. Header Inner Flex Row                                                  */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* On the homepage, make header transparent so it floats over the hero */
+.special-homepage-header {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Flex container holds logo, burger, and nav-links */
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* logo on left, nav or burger on right */
-  width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;                 /* center within header */
-  padding: 0 1rem;
-  height: 100%;
+  justify-content: center; /* logo left, nav immediately after */
+  padding: 1rem 12px;
+  height: var(--nav-height);
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 6. Logo                                                                   */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* ─── Logo ───────────────────────────────────────────────────────────────── */
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
@@ -105,21 +105,13 @@ body:not(.homepage) .site-header {
   border-radius: 8px;
   padding: 0.3rem 0.8rem;
   text-transform: uppercase;
-  text-decoration: none;
-  background: rgba(255,255,255,0.75); /* slightly translucent for legibility over hero */
 }
 
-body:not(.homepage) .logo {
-  background: white;              /* solid white on non-home pages */
-}
-
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 7. Desktop Navigation (links)                                             */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* ─── Main Nav (desktop) ────────────────────────────────────────────────── */
 .main-nav {
-  display: flex;
-  align-items: center;
+  margin: 0 auto;
   order: 2;
+  display: flex;
 }
 
 .nav-links {
@@ -134,8 +126,7 @@ body:not(.homepage) .logo {
   font-weight: 500;
   color: var(--text-dark);
   padding: 0.5rem;
-  text-decoration: none;
-  transition: background 0.2s ease;
+  transition: background 0.3s;
 }
 
 .nav-links li a:hover {
@@ -143,27 +134,23 @@ body:not(.homepage) .logo {
   border-radius: 6px;
 }
 
-.special-homepage-header .nav-links li a {
-  color: white;                   /* white links when header is transparent */
-}
-
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 8. Burger Toggle (mobile) & Hide on Desktop                                */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* ─── Mobile “burger” icon (hidden on desktop) ──────────────────────────── */
 .nav-toggle {
-  display: none;                  /* hidden by default */
+  display: none; /* hidden by default; the label/burger toggles the menu */
 }
 
 .nav-toggle-label {
-  display: none;                  /* hide on desktop */
+  display: none; /* show only on mobile */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 36px;
   height: 30px;
   cursor: pointer;
-  position: relative;
-  z-index: 101;                   /* above header-inner */
+  background: none;
+  border: none;
+  z-index: 200;
 }
 
 .nav-toggle-label span {
@@ -177,21 +164,17 @@ body:not(.homepage) .logo {
   transform-origin: center center;
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 9. Mobile Styles (≤768px)                                                   */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 4. MOBILE NAV & RESPONSIVE HEADER                                        */
+/* ──────────────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* 9.1. Header: logo centered, burger on right */
+  /* Re‐center header on small screens, keep logo centered, burger right */
   .header-inner {
-    display: flex;
-    justify-content: space-between;  /* logo left, burger right */
-    align-items: center;
-    height: var(--nav-height);
-    padding: 0 0.75rem;
-    gap: 0;
+    justify-content: center;
+    position: relative;
+    padding: 0 12px;
   }
 
-  /* 9.2. Center the logo absolutely in header */
   .logo {
     position: absolute;
     left: 50%;
@@ -199,66 +182,63 @@ body:not(.homepage) .logo {
     transform: translate(-50%, -50%);
     z-index: 1;
     max-width: 60vw;
-    font-size: 1.3rem;                /* shrink on mobile */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1.3rem;
   }
 
-  /* 9.3. Show the burger icon on mobile */
+  /* Show burger */
   .nav-toggle-label {
-    display: flex;                   /* reveal burger */
-    position: relative;              /* floats in header-inner */
+    display: flex;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
-  /* 9.4. Hide desktop nav-links off‐canvas until toggled */
-  .main-nav {
-    position: absolute;              /* take it out of normal flow */
+  /* Slide‐in menu: hide by default */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: fixed;
     top: var(--nav-height);
     right: 0;
-    background: white;
     width: 70vw;
-    height: calc(100vh - var(--nav-height));
-    display: none;                   /* show only when burger is checked */
-    flex-direction: column;
+    height: calc(100% - var(--nav-height));
     padding: 2rem 1.5rem;
     overflow-y: auto;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    z-index: 100;                    /* beneath the burger icon */
+    z-index: 150;
   }
-  .main-nav .nav-links {
-    flex-direction: column;
-  }
-  .main-nav .nav-links li {
+
+  .nav-links li {
     border-bottom: 1px solid var(--border-light);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
   }
-  .main-nav .nav-links li:last-child {
+  .nav-links li:last-child {
     border-bottom: none;
     margin-bottom: 0;
   }
-  .main-nav .nav-links li a {
+  .nav-links li a {
     display: block;
     padding: 0.5rem 0;
     font-size: 1.25rem;
     color: var(--text-dark);
   }
-  .main-nav .nav-links li a:hover {
+  .nav-links li a:hover {
     color: var(--secondary-accent);
   }
 
-  /* 9.5. Reveal the off‐canvas menu when burger is checked */
-  .nav-toggle:checked + .nav-toggle-label + .main-nav {
+  /* When burger is checked, reveal the menu */
+  .nav-toggle:checked + .nav-toggle-label + .main-nav .nav-links {
     display: flex;
   }
 
-  /* 9.6. Animate burger → X */
+  /* Animate burger → X */
   .nav-toggle-label span {
-    width: 32px;    /* so “X” arms reach full width */
+    width: 32px;
     height: 3px;
     margin: 3px 0;
-    background: var(--text-dark);
   }
   .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
@@ -270,42 +250,53 @@ body:not(.homepage) .logo {
     transform: translateY(-9px) rotate(-45deg);
   }
 
-  /* 9.7. Push header into normal flow on mobile when not on homepage */
-  body:not(.homepage) .site-header {
-    position: relative;
+  /* Remove desktop nav positioning */
+  .main-nav {
+    position: static;
+    transform: none;
   }
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 10. Hero Section (full‐width image, below header on homepage)             */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 5. HERO (full‐screen on homepage)                                         */
+/* ──────────────────────────────────────────────────────────────────────── */
 .hero {
-  width: 100%;
-  height: calc(100vh - var(--nav-height)); /* full viewport minus header */
-  background: url('/assets/images/placeholders/ninbinh_temple_above.jpg') center/cover no-repeat;
   position: relative;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  background-position: center;
+  z-index: 0; /* ensure children can stack above */
+}
+
+body.homepage .hero {
+  background-image: url('/assets/images/placeholders/ninbinh_temple_above.jpg');
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);   /* dark overlay for text legibility */
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
 }
 
 .hero-btn {
-  position: relative;
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   background: var(--primary-green);
   color: white;
-  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 8px;
+  padding: 0.75rem 1.5rem;
   font-size: 1.2rem;
-  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
   transition: background 0.3s;
 }
 
@@ -313,18 +304,14 @@ body:not(.homepage) .logo {
   background: var(--secondary-accent);
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 11. Guide & Gallery Grid                                                  */
-/*──────────────────────────────────────────────────────────────────────────*/
-.featured-guides,
-.photo-gallery {
-  margin-top: 4rem;
-}
-
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 6. FEATURED GUIDES + PHOTO GALLERY                                        */
+/* ──────────────────────────────────────────────────────────────────────── */
 .section-title {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
+  margin-top: 2em;
 }
 
 .guide-grid,
@@ -332,12 +319,32 @@ body:not(.homepage) .logo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin: 0 auto;
+  width: 100%;
+  margin: 4em auto;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  justify-items: center;
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 12. Footer                                                                */
-/*──────────────────────────────────────────────────────────────────────────*/
+.guide-grid li,
+.gallery-grid li {
+  margin: 0;
+  padding: 0;
+}
+
+.guide-card img,
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 7. FOOTER                                                                 */
+/* ──────────────────────────────────────────────────────────────────────── */
 .site-footer {
   background: white;
   padding: 2rem 1rem;
@@ -360,35 +367,10 @@ body:not(.homepage) .logo {
   color: var(--primary-green);
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 13. Buttons                                                               */
-/*──────────────────────────────────────────────────────────────────────────*/
-button,
-.btn {
-  display: inline-block;
-  background-color: var(--primary-green);
-  color: white;
-  padding: 0.75em 1.5em;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover,
-.btn:hover {
-  background-color: var(--secondary-accent);
-  transform: scale(1.03);
-}
-
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 14. Scroll‐in Animation for Sections                                       */
-/*──────────────────────────────────────────────────────────────────────────*/
-html {
+/* ──────────────────────────────────────────────────────────────────────── */
+/* 8. SCROLL ANIMATIONS (optional)                                           */
+/* ──────────────────────────────────────────────────────────────────────── */
+/*html {
   scroll-behavior: smooth;
 }
 
@@ -403,11 +385,8 @@ section.visible {
   transform: none;
 }
 
-/*──────────────────────────────────────────────────────────────────────────*/
-/* 15. Scrolled Header                                                       */
-/*──────────────────────────────────────────────────────────────────────────*/
+/* When header “sticks” (e.g. on subpages), add slight shadow — optional
 header.scrolled {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: background 0.3s, box-shadow 0.3s;
-}
+}  */

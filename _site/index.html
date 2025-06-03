@@ -1,130 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home — Blake Porter</title>
-    <meta name="description" content="Welcome to Blake Porter’s travel site">
+    <meta name="description" content="Welcome to Blake Porter’s travel site" />
 
     
     <link rel="stylesheet" href="/assets/css/style.css" />
-
-    
-    
-
   </head>
-  <body class="">
-    
-    <header class="site-header">
-  <div class="container header-inner">
+  <body class="homepage">
+    <header class="site-header special-homepage-header">
+  <div class="header-inner container">
     <a href="/" class="logo">Blake Porter</a>
-    <!-- Hidden checkbox toggles the mobile menu -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-    <!-- Hamburger icon (three spans) -->
-    <label for="nav-toggle" class="nav-toggle-label">
+
+    <!-- Mobile toggle checkbox -->
+    <input type="checkbox" id="navToggle" class="nav-toggle" />
+
+    <!-- “Burger” icon (shown only on mobile) -->
+    <label for="navToggle" class="nav-toggle-label">
       <span></span>
       <span></span>
       <span></span>
     </label>
-    <!-- Main navigation -->
+
     <nav class="main-nav">
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/explore/">Explore</a></li>
         <li><a href="/inspiration/">Inspiration</a></li>
-        <li><a href="/services/">Services</a></li>
         <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-
     <main>
       
+<!-- 1. HERO SECTION (full‐screen) -->
+<section class="hero">
+  <button id="planBtn" class="hero-btn">Plan Your Journey</button>
+</section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <a href="#" id="planBtn" class="btn hero-btn">Plan Your Journey</a>
-  </section>
+<!-- 2. FEATURED GUIDES -->
+<section class="container featured-guides">
+  <h2 class="section-title">Featured Guides</h2>
+  <ul class="guide-grid">
+    
+  </ul>
+</section>
 
-  <!-- Featured Guides -->
-  <section class="container featured-guides">
-    <h2 class="section-title">Featured Guides</h2>
-    <ul class="guide-grid">
-      
-    </ul>
-  </section>
-
-  <!-- Photo Gallery -->
-  <section class="container photo-gallery">
-    <h2 class="section-title">Photo Gallery</h2>
-    <ul class="gallery-grid">
-      <!-- Note: each src below must match an actual file under src/assets/images/placeholders/ -->
-      <li class="gallery-item">
+<!-- 3. PHOTO GALLERY -->
+<section class="container photo-gallery">
+  <h2 class="section-title">Photo Gallery</h2>
+  <ul class="gallery-grid">
+    <li class="gallery-item">
+      <a href="/inspiration/">
         <img
           src="/assets/images/placeholders/fuji_sunset.jpg"
-          alt="Fuji Sunset">
-      </li>
-      <li class="gallery-item">
-        <img
-          src="/assets/images/placeholders/hongkong_buddha.jpg"
-          alt="Hong Kong Buddha">
-      </li>
-      <li class="gallery-item">
-        <img
-          src="/assets/images/placeholders/sequoia_camping.jpg"
-          alt="Sequoia Camping">
-      </li>
-      <li class="gallery-item">
-        <img
-          src="/assets/images/placeholders/autumn_photographer.jpg"
-          alt="Autumn Photographer">
-      </li>
-      <li class="gallery-item">
-        <img
-          src="/assets/images/placeholders/bridge_reflection.jpg"
-          alt="Bridge Reflection">
-      </li>
-      <li class="gallery-item">
-        <img
-          src="/assets/images/placeholders/keio_snow.jpg"
-          alt="Keio Snow">
-      </li>
-      <li class="gallery-item">
+          alt="Fuji Sunset"
+        />
+      </a>
+    </li>
+    <li class="gallery-item">
+      <a href="/inspiration/">
         <img
           src="/assets/images/placeholders/shibuya_snow.jpg"
-          alt="Shibuya Snow">
-      </li>
-    </ul>
-  </section>
+          alt="Shibuya Snow"
+        />
+      </a>
+    </li>
+    <li class="gallery-item">
+      <a href="/inspiration/">
+        <img
+          src="/assets/images/placeholders/sequoia_camping.jpg"
+          alt="Sequoia Camping"
+        />
+      </a>
+    </li>
+    <li class="gallery-item">
+      <a href="/inspiration/">
+        <img
+          src="/assets/images/placeholders/bridge_reflection.jpg"
+          alt="Bridge Reflection"
+        />
+      </a>
+    </li>
+  </ul>
+</section>
 
-  <!-- Footer (if you want a secondary footer here, otherwise layout’s footer will render) -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Blake Porter. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-      <a href="#">Facebook</a>
-    </div>
-  </footer>
-
-  <script src="/assets/js/main.js" defer></script>
-
+<script>
+  // Smooth‐scroll when “Plan Your Journey” is clicked
+  document.getElementById('planBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  });
+</script>
 
     </main>
-
-    
     <footer class="site-footer">
-    <p>&copy; 2025 Blake Porter. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-      <a href="#">Facebook</a>
-    </div>
-  </footer>
+  <p>&copy; 2025 Blake Porter. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#">Instagram</a>
+    <a href="#">Twitter</a>
+    <a href="#">Facebook</a>
+  </div>
+</footer>
 
-    
-    
   </body>
 </html>

@@ -1,38 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ title }} — Blake Porter</title>
-    <meta name="description" content="{{ description | safe }}">
+    <meta name="description" content="{{ description | safe }}" />
 
-    {# — Global stylesheet #}
-    <link rel="stylesheet" href="/assets/css/style.css" />
-
-    {# — Page-specific CSS (e.g. "pages.css") #}
-    {% if page.data.css %}
-      {% for sheet in page.data.css %}
-        <link rel="stylesheet" href="/assets/css/{{ sheet }}.css" />
-      {% endfor %}
-    {% endif %}
-
+    {# — Global stylesheet —#}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | url }}" />
   </head>
-  <body class="{{ page.data.bodyClass }}">
-    {# — Header partial (nav, logo, etc.) #}
+  <body class="{{ bodyClass | default("") }}">
     {% include "partials/header.html" %}
-
     <main>
       {{ content | safe }}
     </main>
-
-    {# — Footer partial #}
     {% include "partials/footer.html" %}
-
-    {# — Page-specific JavaScript (if any) #}
-    {% if page.data.js %}
-      {% for script in page.data.js %}
-        <script src="/assets/js/{{ script }}.js" defer></script>
-      {% endfor %}
-    {% endif %}
   </body>
 </html>

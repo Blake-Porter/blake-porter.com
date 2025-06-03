@@ -1,22 +1,24 @@
-<header class="site-header">
-  <div class="container header-inner">
+<header class="site-header{% if bodyClass == "homepage" %} special-homepage-header{% endif %}">
+  <div class="header-inner container">
     <a href="/" class="logo">Blake Porter</a>
-    <!-- Hidden checkbox toggles the mobile menu -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-    <!-- Hamburger icon (three spans) -->
-    <label for="nav-toggle" class="nav-toggle-label">
+
+    <!-- Mobile toggle checkbox -->
+    <input type="checkbox" id="navToggle" class="nav-toggle" />
+
+    <!-- “Burger” icon (shown only on mobile) -->
+    <label for="navToggle" class="nav-toggle-label">
       <span></span>
       <span></span>
       <span></span>
     </label>
-    <!-- Main navigation -->
+
     <nav class="main-nav">
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/explore/">Explore</a></li>
         <li><a href="/inspiration/">Inspiration</a></li>
-        <li><a href="/services/">Services</a></li>
         <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
       </ul>
     </nav>
   </div>
