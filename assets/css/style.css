@@ -1,8 +1,34 @@
-/* resources/css/style.css */
+/* assets/css/style.css */
 
-/* Font */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* 0. Global Reset + Box‐Sizing                                              */
+/*──────────────────────────────────────────────────────────────────────────*/
+/* Make every element include padding/border in its width/height */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent any accidental horizontal scroll */
+  font-family: 'DM Sans', sans-serif;
+  background: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/*──────────────────────────────────────────────────────────────────────────*/
+/* 1. Font                                                                     */
+/*──────────────────────────────────────────────────────────────────────────*/
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
+/*──────────────────────────────────────────────────────────────────────────*/
+/* 2. Root Variables                                                          */
+/*──────────────────────────────────────────────────────────────────────────*/
 :root {
   --primary-green: #355E3B;
   --secondary-accent: #4A7C59;
@@ -11,123 +37,89 @@
   --text-dark: #1f1f1f;
   --text-light: #666666;
   --border-light: #dcdcdc;
+
+  --nav-height: 60px; /* header height */
+  --container-max: 1200px; /* maximum width for content containers */
 }
 
-/* Base */
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--background-light);
-  color: var(--text-dark);
-  margin: 0;
-  padding: 0;
-  line-height: 1.7;
-}
-
+/*──────────────────────────────────────────────────────────────────────────*/
+/* 3. Utility: Centered Container                                             */
+/*──────────────────────────────────────────────────────────────────────────*/
 .container {
   width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-a {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: var(--secondary-accent);
-  overflow: hidden;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: var(--primary-green);
-}
-
-a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.3s ease;
-}
-
-a:hover::after {
-  width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Header Wrapper                                                         */
+/* 4. Header – Transparent on Homepage, Solid Otherwise                        */
 /*──────────────────────────────────────────────────────────────────────────*/
 .site-header {
-  position: relative;
+  position: absolute;             /* float over the hero by default */
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 1rem 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  z-index: 100;                   /* above everything */
+  background: transparent;        /* transparent on homepage */
+  border-bottom: none;
+  transition: background 0.3s ease;
+}
+
+/* If the page passes a bodyClass (e.g. “homepage”), we keep .site-header transparent.
+   On any other page you can add a class like “subpage” (see layout.njk below) and override: */
+body:not(.homepage) .site-header {
+  position: relative;             /* push header into the normal flow */
   background: white;
   border-bottom: 1px solid var(--border-light);
 }
 
-.special-homepage-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  border: none;
-  z-index: 100;
-}
-
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Inner Flex Container                                                   */
+/* 5. Header Inner Flex Row                                                  */
 /*──────────────────────────────────────────────────────────────────────────*/
 .header-inner {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
+  justify-content: space-between; /* logo on left, nav or burger on right */
   width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;                 /* center within header */
+  padding: 0 1rem;
+  height: 100%;
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Logo                                                                   */
+/* 6. Logo                                                                   */
 /*──────────────────────────────────────────────────────────────────────────*/
 .logo {
-  order: 1;
-  margin-right: auto;
   font-weight: 700;
   font-size: 1.5rem;
-  padding: 0.3rem 0.8rem;
   color: var(--primary-green);
   border: 2px solid var(--primary-green);
   border-radius: 8px;
+  padding: 0.3rem 0.8rem;
   text-transform: uppercase;
+  text-decoration: none;
+  background: rgba(255,255,255,0.75); /* slightly translucent for legibility over hero */
 }
 
-.special-homepage-header .logo {
-  color: white;
-  border-color: white;
+body:not(.homepage) .logo {
+  background: white;              /* solid white on non-home pages */
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Desktop Navigation                                                     */
+/* 7. Desktop Navigation (links)                                             */
 /*──────────────────────────────────────────────────────────────────────────*/
-.header-inner nav {
-  order: 2;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.nav-container {
+.main-nav {
   display: flex;
   align-items: center;
+  order: 2;
 }
 
 .nav-links {
@@ -142,7 +134,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   color: var(--text-dark);
   padding: 0.5rem;
-  transition: background 0.3s;
+  text-decoration: none;
+  transition: background 0.2s ease;
 }
 
 .nav-links li a:hover {
@@ -151,177 +144,168 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .special-homepage-header .nav-links li a {
-  color: white;
+  color: white;                   /* white links when header is transparent */
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Mobile “Burger” Toggle                                                 */
+/* 8. Burger Toggle (mobile) & Hide on Desktop                                */
 /*──────────────────────────────────────────────────────────────────────────*/
-.header-inner .burger {
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 24px;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 4px;
-  cursor: pointer;
-  z-index: 150;
+.nav-toggle {
+  display: none;                  /* hidden by default */
 }
 
-@media (min-width: 769px) {
-  .header-inner .burger {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  /* hide desktop nav links */
-  .header-inner .nav-links {
-    display: none;
-  }
-
-  /* show burger on mobile */
-  .header-inner .burger {
-    width: auto;
-    height: auto;
-    padding: 0.3rem 0.8rem;
-    display: flex;
-    margin-left: auto;
-    margin-right: 3rem;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-
-  /* undo the desktop centering of nav so it flows normally */
-  .header-inner nav {
-    position: static;
-    transform: none;
-  }
-
-  /* style the bars */
-  .header-inner .burger .line {
-    display: block;
-    width: 24px;
-    height: 3px;
-    margin: 0.2rem 0;
-    background: var(--text-dark);
-    border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
-
-  /* white bars on dark homepage header */
-  .special-homepage-header .burger .line {
-    background: white;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
-}
-
-/*──────────────────────────────────────────────────────────────────────────*/
-/* Burger “X” & slide-out menu (JS-driven)                                */
-/*──────────────────────────────────────────────────────────────────────────*/
-.header-inner .burger.active .line:nth-child(1) {
-  transform: rotate(45deg) translate(5px,5px);
-}
-.header-inner .burger.active .line:nth-child(2) {
-  opacity: 0;
-}
-.header-inner .burger.active .line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px,-5px);
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 70vw;
-  height: 100%;
-  background: white;
-  padding: 4rem 2rem;
-  overflow-y: auto;
-  transition: right 0.3s ease;
-  z-index: 200;
-  font-size: 1.25rem;
-}
-
-.mobile-menu .mobile-nav-links {
-  list-style: none;        /* remove bullets */
-  margin: 0;
-  padding: 0;
-}
-
-.mobile-menu .mobile-nav-links li {
-  border-bottom: 1px solid var(--border-light);  /* separator line */
-  padding: 1rem 0;                               /* vertical spacing */
-}
-
-.mobile-menu .mobile-nav-links li:last-child {
-  border-bottom: none;   /* no line under last item */
-}
-
-.mobile-menu .mobile-nav-links a {
-  display: block;
-  padding: 0.5rem 0;      /* extra tappable area */
-  color: var(--text-dark);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.mobile-menu .mobile-nav-links a:hover {
-  color: var(--secondary-accent);
-}
-
-.mobile-menu.active {
-  right: 0;
-}
-
-/*──────────────────────────────────────────────────────────────────────────*/
-/* Homepage Hero Section                                                   */
-/*──────────────────────────────────────────────────────────────────────────*/
-.hero {
-  background-image: url('/resources/images/ninbinh_temple_above.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  margin-bottom: 2rem;
-  display: flex;
+.nav-toggle-label {
+  display: none;                  /* hide on desktop */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 36px;
+  height: 30px;
+  cursor: pointer;
   position: relative;
-  overflow: hidden;
+  z-index: 101;                   /* above header-inner */
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 3px 0;
+  background: var(--text-dark);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center center;
+}
+
+/*──────────────────────────────────────────────────────────────────────────*/
+/* 9. Mobile Styles (≤768px)                                                   */
+/*──────────────────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  /* 9.1. Header: logo centered, burger on right */
+  .header-inner {
+    display: flex;
+    justify-content: space-between;  /* logo left, burger right */
+    align-items: center;
+    height: var(--nav-height);
+    padding: 0 0.75rem;
+    gap: 0;
+  }
+
+  /* 9.2. Center the logo absolutely in header */
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    max-width: 60vw;
+    font-size: 1.3rem;                /* shrink on mobile */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* 9.3. Show the burger icon on mobile */
+  .nav-toggle-label {
+    display: flex;                   /* reveal burger */
+    position: relative;              /* floats in header-inner */
+  }
+
+  /* 9.4. Hide desktop nav-links off‐canvas until toggled */
+  .main-nav {
+    position: absolute;              /* take it out of normal flow */
+    top: var(--nav-height);
+    right: 0;
+    background: white;
+    width: 70vw;
+    height: calc(100vh - var(--nav-height));
+    display: none;                   /* show only when burger is checked */
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 100;                    /* beneath the burger icon */
+  }
+  .main-nav .nav-links {
+    flex-direction: column;
+  }
+  .main-nav .nav-links li {
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .main-nav .nav-links li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .main-nav .nav-links li a {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+  }
+  .main-nav .nav-links li a:hover {
+    color: var(--secondary-accent);
+  }
+
+  /* 9.5. Reveal the off‐canvas menu when burger is checked */
+  .nav-toggle:checked + .nav-toggle-label + .main-nav {
+    display: flex;
+  }
+
+  /* 9.6. Animate burger → X */
+  .nav-toggle-label span {
+    width: 32px;    /* so “X” arms reach full width */
+    height: 3px;
+    margin: 3px 0;
+    background: var(--text-dark);
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* 9.7. Push header into normal flow on mobile when not on homepage */
+  body:not(.homepage) .site-header {
+    position: relative;
+  }
+}
+
+/*──────────────────────────────────────────────────────────────────────────*/
+/* 10. Hero Section (full‐width image, below header on homepage)             */
+/*──────────────────────────────────────────────────────────────────────────*/
+.hero {
+  width: 100%;
+  height: calc(100vh - var(--nav-height)); /* full viewport minus header */
+  background: url('/assets/images/placeholders/ninbinh_temple_above.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
-}
-
-.hero-title, .hero-btn {
-  position: absolute;
-  bottom: 30%;
-  z-index: 2;
-}
-
-.hero-title {
-  font-size: 3rem;
-  color: white;
-  margin: 0;
+  background: rgba(0,0,0,0.4);   /* dark overlay for text legibility */
 }
 
 .hero-btn {
-  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
   background: var(--primary-green);
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 8px;
   font-size: 1.2rem;
+  text-decoration: none;
   transition: background 0.3s;
 }
 
@@ -330,26 +314,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Guide & Gallery Grid                                                    */
+/* 11. Guide & Gallery Grid                                                  */
 /*──────────────────────────────────────────────────────────────────────────*/
-.guide-grid, .gallery-grid {
+.featured-guides,
+.photo-gallery {
+  margin-top: 4rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.guide-grid,
+.gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
-}
-
-.guide-card img, .gallery-item img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
+  margin: 0 auto;
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Footer                                                                  */
+/* 12. Footer                                                                */
 /*──────────────────────────────────────────────────────────────────────────*/
 .site-footer {
   background: white;
@@ -374,9 +361,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Buttons                                                                 */
+/* 13. Buttons                                                               */
 /*──────────────────────────────────────────────────────────────────────────*/
-button, .btn {
+button,
+.btn {
   display: inline-block;
   background-color: var(--primary-green);
   color: white;
@@ -391,37 +379,15 @@ button, .btn {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   background-color: var(--secondary-accent);
   transform: scale(1.03);
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Misc                                                                    */
+/* 14. Scroll‐in Animation for Sections                                       */
 /*──────────────────────────────────────────────────────────────────────────*/
-.featured-guides {
-  margin-top: 4rem;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.inspiration-gallery {
-  margin-top: 5rem;
-}
-
-.gallery-item {
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -438,7 +404,7 @@ section.visible {
 }
 
 /*──────────────────────────────────────────────────────────────────────────*/
-/* Scrolled header                                                          */
+/* 15. Scrolled Header                                                       */
 /*──────────────────────────────────────────────────────────────────────────*/
 header.scrolled {
   background-color: rgba(255, 255, 255, 0.9);
