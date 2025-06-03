@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center; /* logo left, nav immediately after */
-  padding: 1rem 12px;
+  padding: 4rem 12px;
   height: var(--nav-height);
 }
 
@@ -258,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ──────────────────────────────────────────────────────────────────────── */
-/* 5. HERO (full‐screen on homepage)                                         */
+/* 5. HERO (full‐screen on homepage) + Home Nav Bar Styling                                        */
 /* ──────────────────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
@@ -279,7 +279,7 @@ body.homepage .hero {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -303,6 +303,34 @@ body.homepage .hero {
 .hero-btn:hover {
   background: var(--secondary-accent);
 }
+
+body.homepage .nav-links li a {
+  color: white;
+}
+
+body.homepage .nav-links li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+body.homepage .logo {
+  color: white;
+  border-color: white;
+  background: rgba(0,0,0,0.2);
+}
+
+body.homepage .logo,
+body.homepage .nav-links li a {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+}
+
+body.homepage .nav-links li a::after,
+body.homepage .logo::after {
+  background: #216e23; /* brighter green than --primary-green */
+  height: 3px; /* thicker underline */
+  border-radius: 2px;
+}
+
 
 /* ──────────────────────────────────────────────────────────────────────── */
 /* 6. FEATURED GUIDES + PHOTO GALLERY                                        */
